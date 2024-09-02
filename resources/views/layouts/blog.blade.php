@@ -47,15 +47,38 @@
         }
     @endif
     <!-- Top Bar Nav -->
-    <nav class="w-full py-4 bg-blue-800 shadow">
+    <!-- <nav class="w-full py-4 bg-blue-800 shadow"> -->
+        <nav class="w-full py-4 bg-white shadow">
+            <!-- <img src="{{ asset('/import/assets/logo.png') }}"  style="width:20%; height:20%;" >           -->
+
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
             <nav>
-                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                    @foreach ($pages_nav as $page)
+                <ul class="flex items-center justify-between font-bold text-sm text-black uppercase no-underline">
+                <img src="{{ asset('/import/assets/logo.png') }}"  style="width:20%; height:20%;" >          
+
+                @foreach ($pages_nav as $page)
                         <li><a class="hover:text-gray-200 hover:underline px-4"
                                 href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
                     @endforeach
+                    <div x-data="{ open: false }" class="relative">
+    <!-- Dropdown Toggle for Services -->
+    <button @click="open = !open" class="font-bold text-sm text-black uppercase no-underline hover:text-blue-200 hover:underline px-4">
+        SERVICES
+        <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+
+    <!-- Dropdown Menu for Categories -->
+    <div x-show="open" @click.away="open = false" class="absolute bg-green-300 border rounded shadow-lg mt-2 w-80 capitalize">
+        @forelse ($categories as $category)
+            <a href="{{ route('category.show', $category->slug) }}" class="block hover:bg-blue-400 py-2 px-4">{{ $category->name }}</a>
+        @empty
+            <span class="block py-2 px-4 text-gray-600">No Categories!</span>
+        @endforelse
+    </div>
+</div>
 
                     @auth
                         <form method="POST" action="{{ route('logout') }}">
@@ -90,8 +113,10 @@
     </nav>
 
     <!-- Text Header -->
-    <header class="w-full container mx-auto">
+    <header class="w-full container mx-auto" style="background: linear-gradient(to right, turquoise, green);">
         <div class="flex flex-col items-center py-12">
+        <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="{{ route('webhome') }}">  </a>
+        <!-- <img src="{{ asset('/import/assets/logo.png') }}"  style="width:50%; height:50%;" >           -->
             <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="{{ route('webhome') }}">
                 {{ $setting->site_name }}
             </a>
@@ -110,7 +135,7 @@
                 Topics <i :class="open ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas ml-2"></i>
             </a>
         </div>
-        <div :class="open ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+        <!-- <div :class="open ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div
                 class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
                 <a href="{{ route('webhome') }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Home</a>
@@ -121,7 +146,10 @@
                     No Categories !
                 @endforelse
             </div>
-        </div>
+        </div> -->
+        <div >
+       
+    </div>
     </nav>
 
 
@@ -134,7 +162,7 @@
             <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 
                 <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                    <p class="text-xl font-semibold pb-5">About Us</p>
+                    <p class="text-xl font-semibold pb-5"> Ask for care</p>
                     <p class="pb-2">{{ $setting->about }}</p>
                     {{-- <a href="#"
                     class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
@@ -143,7 +171,7 @@
                 </div>
 
                 <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                    <p class="text-xl font-semibold pb-5">Tags</p>
+                    <p class="text-xl font-semibold pb-5">Contact Us</p>
                     <div class="flex flex-wrap">
 
                         @foreach ($tags as $tag)
@@ -158,7 +186,7 @@
                 </div>
 
                 <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                    <p class="text-xl font-semibold pb-5">Top 5 Writers</p>
+                    <p class="text-xl font-semibold pb-5">Top 5 Services</p>
                     {{--  --}}
                     <div class="content flex justify-between py-2 w-full">
                         <div class="px-2 justify-between">
@@ -192,18 +220,60 @@
 
 
     </div>
-
-    <footer class="w-full border-t bg-white pb-12">
-
-        <div class="w-full container mx-auto flex flex-col items-center">
-            <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                @foreach ($pages_footer as $page)
-                    <a href="{{ route('page.show', $page->slug) }}" class="uppercase px-3 hover:text-blue-700">{{ $page->name }}</a>
-                @endforeach
+    <footer class="w-full border-t bg-white">
+    <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center">
+        <!-- Contact Section with Icons -->
+        <div class="md:w-1/3 mb-8 md:mb-0 text-center md:text-left">
+            <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+            <div class="flex items-center justify-center md:justify-start mb-2">
+                <i class="fas fa-phone-alt mr-2 text-blue-500"></i>
+                <p class="text-sm">Phone: (123) 456-7890</p>
             </div>
-            <div class="uppercase pb-6">&copy; {{ $setting->copy_rights }}</div>
+            <div class="flex items-center justify-center md:justify-start mb-2">
+                <i class="fas fa-envelope mr-2 text-blue-500"></i>
+                <p class="text-sm">Email: info@example.com</p>
+            </div>
+            <div class="flex items-center justify-center md:justify-start">
+                <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                <p class="text-sm">Address: 123 Main St, City, State, ZIP</p>
+            </div>
         </div>
-    </footer>
+
+        <!-- About Section with Logo -->
+        <div class="md:w-1/3 mb-8 md:mb-0 text-center md:text-left">
+            <!-- <h3 class="text-lg font-semibold mb-4">About Us</h3> -->
+            <img src="{{ asset('/import/assets/logo.png') }}" alt="Website Logo" class="mx-auto md:mx-0 mb-4 w-48 h-48 object-contain">
+            <p class="text-sm">Brief description of your website or company.</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="md:w-1/3 text-center md:text-left">
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="text-sm">
+                <li><a href="#" class="hover:text-blue-700">Home</a></li>
+                <li><a href="#" class="hover:text-blue-700">About</a></li>
+                <li><a href="#" class="hover:text-blue-700">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <div class="w-full bg-gray-100 py-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between text-center md:text-left">
+            @foreach ($pages_footer as $page)
+                <a href="{{ route('page.show', $page->slug) }}" class="uppercase px-3 hover:text-blue-700">{{ $page->name }}</a>
+            @endforeach
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="w-full bg-gray-200 text-center py-4">
+        <p class="text-sm uppercase">&copy; {{ $setting->copy_rights }}</p>
+    </div>
+</footer>
+
+
+
 
 </body>
 
