@@ -100,7 +100,7 @@
         text-align: center;">
         Referral Form
     </a>
-    <a href="mailto:info@yourcompany.com" style="
+    <a href="{{ route('contact') }}" style="
         background-color: #17a2b8; /* Teal background */
         color: white; 
         padding: 10px 20px; 
