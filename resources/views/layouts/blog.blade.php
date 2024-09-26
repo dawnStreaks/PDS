@@ -176,47 +176,70 @@
     </div>
 
     <!-- Footer Section -->
-    <footer class="footer-bg">
-        <div class="container mx-auto py-8 px-8 md:px-4">
-            <div class="flex flex-wrap">
-                <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                    <p class="text-white font-semibold text-lg">Contact</p>
-                    <ul class="mt-4">
-                        <li class="secondary-text">{{ $setting->phone }}</li>
-                        <li class="secondary-text">{{ $setting->address }}</li>
-                    </ul>
-                </div>
-
-                <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                    <img src="{{ asset('/import/assets/logo.png') }}" alt="Footer Logo" class="h-24">
-                    <p class="mt-4 secondary-text">
-                        {{ $setting->site_desc }}
-                    </p>
-                </div>
-
-                <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                    <p class="text-white font-semibold text-lg">Quick Links</p>
-                    <ul class="mt-4">
-                        @foreach ($pages_nav as $page)
-                            <li><a class="footer-link" href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="py-4 footer-bg">
-            <div class="container mx-auto flex flex-wrap items-center justify-between">
-                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                    @foreach ($pages_nav as $page)
-                        <li><a class="hover:underline px-4" href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
-                    @endforeach
+    <footer class="footer-bg bg-gray-800">
+    <div class="container mx-auto py-8 px-8 md:px-4">
+        <div class="flex flex-wrap justify-between">
+            <!-- Contact Section -->
+            <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                <p class="text-white font-semibold text-lg">Contact</p>
+                <ul class="mt-4 space-y-2">
+                    <!-- Phone -->
+                    <li class="text-gray-400 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l3.6 7.2a1 1 0 00.8.4H18l2-3.6a1 1 0 00-.2-1.2L15.4 4a1 1 0 00-1.2-.2L10 6H7a1 1 0 00-1 1v3L4 8.4V5z" />
+                        </svg>
+                        {{ $setting->phone }}
+                    </li>
+                    <!-- Email -->
+                    <li class="text-gray-400 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14v7" />
+                        </svg>
+                        {{ $setting->email }}
+                    </li>
+                    <!-- Address -->
+                    <li class="text-gray-400 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
+                        </svg>
+                        {{ $setting->address }}
+                    </li>
                 </ul>
-                <p class="text-white text-sm">© {{ date('Y') }} {{ config('app.name') }}</p>
             </div>
+
+            <!-- Quick Links Section -->
+            <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                <p class="text-white font-semibold text-lg">Quick Links</p>
+                <ul class="mt-4">
+                    @foreach ($pages_nav as $page)
+                        <li><a class="text-gray-400 hover:text-blue-400" href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
+                    @endforeach
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('webhome') }}">Home</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('about.index') }}">ABOUT US</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('contact.index') }}">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <!-- Aboriginal Acknowledgement Image -->
+            <div class="w-full md:w-auto text-right mt-4 md:mt-0">
+            <img src="{{ asset('/import/assets/aboriginal-acknowledgement.png') }}" alt="Aboriginal Acknowledgement" class="h-32 md:h-32">            </div>
         </div>
-    </footer>
+    </div>
 
-</body>
+    <!-- Bottom Footer with Logo and Description Section -->
+    <div class="py-4 bg-gray-900">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <!-- Logo Section -->
+            <div class="w-full md:w-1/3 mb-6 md:mb-0 text-center">
+                <img src="{{ asset('/import/assets/logo.png') }}" alt="Footer Logo" class="h-24 mx-auto">
+                <p class="mt-4 text-gray-400">{{ $setting->site_desc }}</p>
+            </div>
+            
+            <!-- Copyright Info -->
+            <p class="text-white text-sm mt-4 md:mt-0">© {{ date('Y') }} {{ config('app.name') }}</p>
+        </div>
+    </div>
+</footer>
 
-</html>
+

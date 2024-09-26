@@ -9,7 +9,7 @@
             <a href="{{ route('tag.show', $tag->name) }}"
                 class="bg-gray-200 text-gray-700 text-sm font-bold px-3 py-1 mr-2 mb-2 rounded-md hover:bg-gray-300 transition duration-200">{{ $tag->name }}</a>
         @endforeach
-        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all mr-2 mb-2">
+        <a href="{{ route('contact.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all mr-2 mb-2">
             Contact Us
         </a>
     </div>

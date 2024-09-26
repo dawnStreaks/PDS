@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
 Who We are?            </h1>
-<a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all mr-2 mb-2">
+<a href="{{ route('contact.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all mr-2 mb-2">
             Contact Us
         </a>
         

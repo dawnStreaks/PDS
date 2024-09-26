@@ -82,7 +82,7 @@
 
         <!-- Links Section -->
         <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center;"> <!-- Added justify-content: center for alignment -->
-    <a href="#" style="
+    <a href="{{ route('about.index') }}" style="
         background-color: #007bff; /* Blue background */
         color: white; 
         padding: 10px 20px; 
@@ -100,7 +100,7 @@
         text-align: center;">
         Referral Form
     </a>
-    <a href="{{ route('contact') }}" style="
+    <a href="{{ route('contact.index') }}" style="
         background-color: #17a2b8; /* Teal background */
         color: white; 
         padding: 10px 20px; 
