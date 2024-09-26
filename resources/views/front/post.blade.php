@@ -1,25 +1,35 @@
 <x-blog-layout title="{{ $post_title }}">
 
-    <div class="container mx-auto flex flex-wrap py-6">
+<div class="flex flex-wrap py-8">
+    <!-- Main Section -->
+    <section class="w-full flex flex-col items-center px-3">
+    <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+    <div class="flex flex-wrap justify-center">
+        @foreach ($tags as $tag)
+            <a href="{{ route('tag.show', $tag->name) }}"
+                class="bg-gray-200 text-gray-700 text-sm font-bold px-3 py-1 mr-2 mb-2 rounded-md hover:bg-gray-300 transition duration-200">{{ $tag->name }}</a>
+        @endforeach
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all mr-2 mb-2">
+            Contact Us
+        </a>
+    </div>
+</div>
 
-        <!-- Post Section -->
-        <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
 
-            <article class="flex flex-col shadow my-4">
-                <!-- Article Image -->
-                    <img src="{{ $post->image }}" width="1000" height="500">
-                <div class="bg-white flex flex-col justify-start p-6">
-                    <a href="{{ route('category.show', $post->category->slug) }}"
-                        class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
-                    <div class="text-3xl font-bold pb-4">{{ $post->title }}</div>
-                    <p href="#" class="text-sm pb-8">
-                        By <a href="#" class="font-semibold hover:text-blue-800">{{ $post->user->name }}</a>,
-                        Published on {{ $post->created_at }}
-                    </p>
-                    {!! $post->content !!}
-                </div>
-            </article>
+    <article class="flex flex-col shadow my-4 w-full">
+    <!-- Banner Image -->
+    <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-80 object-cover">
+
+    <div class="bg-white flex flex-col justify-start p-6">
+        <a href="{{ route('category.show', $post->category->slug) }}"
+            class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
+        <!-- <div class="text-3xl font-bold pb-4">{{ $post->title }}</div> -->
+        {!! $post->content !!}
+    </div>
+</article>
+
+
             {{-- author --}}
             <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
                 <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">

@@ -15,5 +15,16 @@ class HomeController extends Controller
 
         return view('front.index', compact('posts'));
     }
+    public function about()
+    {
+        return view('front.about');
+    }
 
+    // public function Services()
+    // {
+    //     // Get the active posts with (Category and User) details
+    //     $posts = Post::published()->with(['category', 'user'])->latest('created_at')->paginate(10);
+
+    //     return view('front.index', compact('posts'));
+    // }
 }
