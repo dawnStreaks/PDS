@@ -15,4 +15,11 @@ class PageController extends Controller
 
         return view('front.page', compact('page'));
     }
+    // public function getPageBySlug($slug)
+    // {
+    //     // I've Pass Slug to Get the Page per it's Slug
+    //     $page = Page::whereSlug($slug)->firstOrFail();
+
+    //     return view('front.page', compact('page'));
+    // }
 }
