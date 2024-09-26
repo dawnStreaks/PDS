@@ -26,10 +26,22 @@
     <div class="h-full w-full bg-opacity-50 bg-black flex items-center justify-center">
         <h1 class="text-white text-5xl font-bold">Pioneer Disability Services PTY LTD</h1>
     </div>
-    <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p>
+
+
 
 </section>
+<div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
+<div style="height: 20px;"></div> <!-- Adjust height as needed -->
+
+<section class="w-full bg-white text-center py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
+                PIONEER DISABILITY SERVICES 
+            </h1>
+        
+        </div>
+    </section>
 <!-- Space Between Sections -->
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
@@ -108,58 +120,52 @@
             <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
                 PIONEER DISABILITY SERVICES 
             </h1>
-        
+            <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p>
+
         </div>
     </section>
 
 
     <!-- Posts Section -->
     <section class="w-full bg-gray-50 py-12">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            @forelse ($posts as $post)
-            <article class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <!-- Post Image -->
-                <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-90">
-                    <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-64 object-cover">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        @forelse ($posts as $post)
+        <article class="bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600" style="max-height: 400px;"> <!-- Reduced card height -->
+            <!-- Post Image -->
+            <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-90">
+                <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-48 object-cover"> <!-- Adjusted image height -->
+            </a>
+            <!-- Post Content -->
+            <div class="p-4 flex flex-col justify-start" style="max-height: 250px; overflow: hidden;"> <!-- Reduced content height -->
+                <!-- Post Category -->
+                <a href="{{ route('category.show', $post->category->slug) }}" class="text-blue-600 text-sm font-bold uppercase pb-2">
+                    {{ $post->category->name }}
                 </a>
-                <!-- Post Content -->
-                <div class="p-6 flex flex-col justify-start">
-                    <!-- Post Category -->
-                    <a href="{{ route('category.show', $post->category->slug) }}" class="text-blue-600 text-sm font-bold uppercase pb-2">
-                        {{ $post->category->name }}
-                    </a>
-                    <!-- Post Title -->
-                    <!-- <h2 class="text-lg font-bold text-gray-800 hover:text-blue-600 pb-4">
-                        <a href="{{ route('post.show', $post->slug) }}">{{ $post->title }}</a>
-                    </h2> -->
-                    <!-- Author and Date -->
-                    <p class="text-sm text-gray-500 pb-2">
-                        By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>,
-                    </p>
-                    <!-- Post Snippet -->
-                    <p class="text-gray-600">{{ \Illuminate\Support\Str::limit($post->content, 150) }}</p>
-                    <!-- Continue Reading Link -->
-                    <a href="{{ route('post.show', $post->slug) }}" style="
-    background-color: #007bff; /* Button background color */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding for button look */
-    border-radius: 25px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
-    display: inline-block; /* Make the link behave like a button */
-    font-weight: bold; /* Bold text */
-    text-transform: uppercase; /* Uppercase text */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    ">
-    Continue Reading <i class="fas fa-arrow-right"></i>
-</a>
+                <!-- Author and Date -->
+               
+                <!-- Post Snippet -->
+                <p class="text-gray-600">{{ \Illuminate\Support\Str::limit($post->content, 30) }}</p>
+                <!-- Continue Reading Link -->
+                <a href="{{ route('post.show', $post->slug) }}" style="
+                    background-color: #007bff; /* Button background color */
+                    color: white; /* Text color */
+                    padding: 8px 8px; /* Reduced padding for button */
+                    border-radius: 25px; /* Rounded corners */
+                    text-decoration: none; /* Remove underline */
+                    display: inline-block; /* Make the link behave like a button */
+                    font-weight: bold; /* Bold text */
+                    transition: background-color 0.3s ease; /* Smooth transition */
+                ">
+                    Continue Reading <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+        @empty
+        <p class="text-gray-600">No Posts have been added.</p>
+        @endforelse
+    </div>
+</section>
 
-                </div>
-            </article>
-            @empty
-            <p class="text-gray-600">No Posts have been added.</p>
-            @endforelse
-        </div>
-    </section>
 
     <!-- Pagination Section -->
     <div class="max-w-7xl mx-auto py-8 px-4">
