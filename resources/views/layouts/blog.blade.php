@@ -92,29 +92,31 @@
                     <li><a class="hover:text-gray-200 hover:underline px-4"
                                 href="{{ route('contact.index') }}">CONTACT US</a></li>
 
-                    <div x-data="{ open: false }" class="relative">
-                        <!-- Services Dropdown -->
-                        <button @click="open = !open"
-                            class="font-bold text-sm text-white uppercase hover:bg-blue-200 hover:underline px-4">
-                            SERVICES
-                            <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
+                                <div x-data="{ open: false }" class="relative">
+    <!-- Services Dropdown -->
+    <button @click="open = !open"
+        class="font-bold text-sm text-white uppercase hover:bg-blue-200 hover:underline px-4">
+        SERVICES
+        <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
 
-                        <!-- Dropdown Menu for Categories -->
-                        <div x-show="open" @click.away="open = false"
-                            class="absolute bg-white border rounded shadow-lg mt-2 w-80 capitalize transition duration-300">
-                            @forelse ($categories as $category)
-                                <a href="{{ route('category.show', $category->slug) }}"
-                                    class="block hover:bg-blue-400 py-2 px-4">{{ $category->name }}</a>
-                            @empty
-                                <span class="block py-2 px-4 text-gray-600">No Categories!</span>
-                            @endforelse
-                        </div>
-                    </div>
+    <!-- Dropdown Menu for Categories -->
+    <div x-show="open" @click.away="open = false"
+        class="absolute bg-green-600 border border-green-500 rounded shadow-lg mt-2 w-80 capitalize transition duration-300"> <!-- Changed background to green -->
+        @forelse ($categories as $category)
+            <a href="{{ route('category.show', $category->slug) }}"
+                class="block hover:bg-green-700 text-white py-2 px-4"> <!-- Darker hover effect on green -->
+                {{ $category->name }}
+            </a>
+        @empty
+            <span class="block py-2 px-4 text-gray-200">No Categories!</span> <!-- Adjusted empty state text to light gray -->
+        @endforelse
+    </div>
+</div>
 
                     @auth
                         <form method="POST" action="{{ route('logout') }}">
