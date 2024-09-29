@@ -188,7 +188,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l3.6 7.2a1 1 0 00.8.4H18l2-3.6a1 1 0 00-.2-1.2L15.4 4a1 1 0 00-1.2-.2L10 6H7a1 1 0 00-1 1v3L4 8.4V5z" />
                         </svg>
-                        {{ $setting->phone }}
+                    75 675 683 575
                     </li>
                     <!-- Email -->
                     <li class="text-gray-400 flex items-center">
@@ -196,14 +196,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 14v7" />
                         </svg>
-                        {{ $setting->email }}
+                        enquiries@pioneerau.com
                     </li>
                     <!-- Address -->
                     <li class="text-gray-400 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
                         </svg>
-                        {{ $setting->address }}
+                        17 Gracy Perry Street, Wright, ACT 2611
                     </li>
                 </ul>
             </div>
@@ -216,8 +216,8 @@
                         <li><a class="text-gray-400 hover:text-blue-400" href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
                     @endforeach
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('webhome') }}">Home</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('about.index') }}">ABOUT US</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('contact.index') }}">CONTACT US</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('about.index') }}">About Us</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('contact.index') }}">Contact Us</a></li>
                 </ul>
             </div>
 
