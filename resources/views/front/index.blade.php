@@ -153,7 +153,7 @@
                 <!-- Post Snippet -->
                 <p class="text-gray-600">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 30) }}</p>
                 <!-- Continue Reading Link -->
-                <a href="{{ route('post.show', $post->slug) }}" style="
+                <a href="{{ route('category.show', $post->category->slug) }}" style="
                     background-color: #007bff; /* Button background color */
                     color: white; /* Text color */
                     padding: 8px 8px; /* Reduced padding for button */
