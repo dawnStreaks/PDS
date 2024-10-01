@@ -75,9 +75,16 @@
             justify-content: center;
             text-align: center;">
         <h2 style="font-size: 2rem; font-weight: 600; margin-bottom: 16px; color: #333;">        Welcome to Pioneer Disability Services</h2>
-        <p style="margin-bottom: 16px; color: #555;">Empowering Lives, Enhancing Abilities</p>
-        <p style="margin-bottom: 16px; color: #555;">At Pioneer Disability Services, we are committed to providing comprehensive services and support for individuals with disabilities. Our mission is to empower everyone to live life to the fullest, with dignity, independence, and the opportunity to achieve their goals.</p>
-        <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p>
+        <p style="margin-bottom: 16px; color: #555; text-align: justify; justify-content: space-between;">
+  Pioneer Disability Services Pty Ltd is a newly registered NDIS provider, distinguished by our unique blend of expertise, commitment to innovation, and dedication to participant-centered care. Our team consists of seasoned professionals with extensive healthcare backgrounds, bringing a wealth of experience to the disability support sector.
+
+  We stand out for our personalized support services, which are tailored to the unique needs and aspirations of each individual, fostering higher participant satisfaction and outcomes. We are also devoted to continuous improvement, investing in staff training, technology and staying current with industry trends to ensure top-quality service delivery.
+
+  Ultimately, our success is measured by the positive impact we make on the lives of NDIS participants, empowering them to lead fulfilling and independent lives while making a meaningful difference in the community.
+</p>
+
+        <!-- <p style="margin-bottom: 16px; color: #555;">At Pioneer Disability Services, we are committed to providing comprehensive services and support for individuals with disabilities. Our mission is to empower everyone to live life to the fullest, with dignity, independence, and the opportunity to achieve their goals.</p>
+        <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p> -->
 
 
         <!-- Links Section -->
@@ -144,7 +151,7 @@
                 <!-- Author and Date -->
                
                 <!-- Post Snippet -->
-                <p class="text-gray-600">{{ \Illuminate\Support\Str::limit($post->content, 30) }}</p>
+                <p class="text-gray-600">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 30) }}</p>
                 <!-- Continue Reading Link -->
                 <a href="{{ route('post.show', $post->slug) }}" style="
                     background-color: #007bff; /* Button background color */
