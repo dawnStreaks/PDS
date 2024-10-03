@@ -22,7 +22,9 @@
         <!-- Author Section -->
         <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
             <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
-                <img src="{{ $post->user->avatar }}" class="rounded-full shadow h-32 w-32">
+            <a href="{{ route('webhome') }}">
+                    <img src="{{ asset('/import/assets/logo.png') }}" alt="Footer Logo" class="h-16 md:h-24">
+                </a>
             </div>
             <div class="flex-1 flex flex-col justify-center md:justify-start">
                 <p class="font-semibold text-2xl">{{ $post->user->name }}</p>
@@ -44,7 +46,7 @@
         </div>
 
         <!-- Comment Section -->
-        @auth
+        <!-- @auth
             @if ($errors->any())
                 <div role="alert" class="mx-4">
                     <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">Validation Errors</div>
@@ -70,10 +72,10 @@
             <div class="w-full shadow bg-red-400 mt-10 mb-10 p-6">
                 <p class="font-semibold text-white text-2xl">Sign in to be able to comment!</p>
             </div>
-        @endauth
+        @endauth-->
 
         <!-- Display Comments -->
-        <div class="w-full shadow bg-white mt-10 mb-10 p-6">
+        <!-- <div class="w-full shadow bg-white mt-10 mb-10 p-6">
             <p class="font-semibold text-2xl">Comments</p>
             @foreach ($comments as $comment)
                 <div class="w-full shadow bg-white mt-10 mb-10 p-6">
@@ -89,9 +91,9 @@
                 </div>
             @endforeach
         </div>
-
+-->
         <!-- Navigation to Previous/Next Post -->
-        <div class="w-full flex pt-6">
+        <!-- <div class="w-full flex pt-6">
             @if (isset($post->previous))
                 <a href="{{ route('post.show', $post->previous->slug) }}" class="w-1/2 shadow bg-white hover:shadow-md text-left p-6">
                     <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
@@ -113,7 +115,7 @@
                     <p>This is the last post</p>
                 </div>
             @endif
-        </div>
-    </section>
+        </div> --> 
+    </section> 
 
 </x-blog-layout>
