@@ -27,7 +27,7 @@ class ContactController extends Controller
         ]);
 
         // Send the email
-        Mail::to('techstreaksforall@gmail.com')->send(new ContactUsMail($request->all()));
+        Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
 
         return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
     }

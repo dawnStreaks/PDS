@@ -119,10 +119,10 @@
 </div>
 
                     @auth
-                        <form method="POST" action="{{ route('logout') }}">
+                        <!-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button class="py-2 px-4 bg-red-500 hover:bg-red-700 text-white">LogOut</button>
-                        </form>
+                        </form> -->
                     <!-- @else
                         <li><a class="py-2 px-4 mr-2 bg-gray-500 hover:bg-gray-700 text-white"
                                 href="{{ route('register') }}">Register</a></li>
