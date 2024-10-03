@@ -123,22 +123,16 @@
                             @csrf
                             <button class="py-2 px-4 bg-red-500 hover:bg-red-700 text-white">LogOut</button>
                         </form>
-                    @else
+                    <!-- @else
                         <li><a class="py-2 px-4 mr-2 bg-gray-500 hover:bg-gray-700 text-white"
                                 href="{{ route('register') }}">Register</a></li>
                         <li><a class="py-2 px-4 bg-green-500 hover:bg-green-700 text-white"
-                                href="{{ route('login') }}">Login</a></li>
+                                href="{{ route('login') }}">Login</a></li> -->
                     @endauth
                 </ul>
             </nav>
 
-            <!-- Social Media Icons -->
-            <div class="flex items-center text-lg no-underline text-white pr-6">
-                <a class="hover-primary" href="{{ $setting->url_fb }}"><i class="fab fa-facebook"></i></a>
-                <a class="hover-primary pl-6" href="{{ $setting->url_tw }}"><i class="fab fa-twitter"></i></a>
-                <a class="hover-primary pl-6" href="{{ $setting->url_insta }}"><i class="fab fa-instagram"></i></a>
-                <a class="hover-primary pl-6" href="{{ $setting->url_ytb }}"><i class="fab fa-youtube"></i></a>
-            </div>
+          
         </div>
     </nav>
 
@@ -175,8 +169,8 @@
         </aside> -->
     </div>
 
-    <!-- Footer Section -->
-    <footer class="footer-bg bg-gray-800">
+  <!-- Footer Section -->
+<footer class="footer-bg bg-gray-800">
     <div class="container mx-auto py-8 px-8 md:px-4">
         <div class="flex flex-wrap justify-between">
             <!-- Contact Section -->
@@ -222,24 +216,28 @@
             </div>
 
             <!-- Aboriginal Acknowledgement Image -->
-            <div class="w-full md:w-auto text-right mt-4 md:mt-0">
-            <img src="{{ asset('/import/assets/aboriginal-acknowledgement.png') }}" alt="Aboriginal Acknowledgement" class="h-32 md:h-32">            </div>
+            <div class="w-full md:w-auto flex justify-end items-center mt-4 md:mt-0">
+                <img src="{{ asset('/import/assets/aboriginal-acknowledgement.png') }}" alt="Aboriginal Acknowledgement" class="h-40 md:h-48">
+            </div>
         </div>
     </div>
 
-    <!-- Bottom Footer with Logo and Description Section -->
+    <!-- Bottom Footer with Separate Color for Copyright -->
     <div class="py-4 bg-gray-900">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <!-- Logo Section -->
-            <div class="w-full md:w-1/3 mb-6 md:mb-0 text-center">
-                <img src="{{ asset('/import/assets/logo.png') }}" alt="Footer Logo" class="h-24 mx-auto">
+            <div class="w-full md:w-1/3 mb-6 md:mb-0 text-left">
+                <a href="{{ route('webhome') }}">
+                    <img src="{{ asset('/import/assets/logo.png') }}" alt="Footer Logo" class="h-16 md:h-24">
+                </a>
                 <p class="mt-4 text-gray-400">{{ $setting->site_desc }}</p>
             </div>
-            
+
             <!-- Copyright Info -->
-            <p class="text-white text-sm mt-4 md:mt-0">© {{ date('Y') }} {{ config('app.name') }}</p>
+            <p class="text-white text-sm">© {{ date('Y') }} {{ config('app.name') }}</p>
         </div>
     </div>
 </footer>
+
 
 
