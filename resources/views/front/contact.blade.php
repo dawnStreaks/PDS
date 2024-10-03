@@ -29,10 +29,12 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
                     <div class="flex justify-center">
                     <svg class="w-16 h-16 text-blue-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0h8m-8 0V8m8 4v4" />
-  <path d="M2 6h20v12H2z" fill="none" stroke="currentColor" stroke-width="2"/>
-  <path d="M2 6l10 7L22 6" fill="none" stroke="currentColor" stroke-width="2"/>
+  <!-- Envelope Body -->
+  <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor" stroke-width="2" rx="2"/>
+  <!-- Envelope Flap -->
+  <path d="M3 5l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2"/>
 </svg>
+
 
                     </div>
                     <h3 class="text-lg font-semibold mb-2">Email Us</h3>
@@ -69,15 +71,19 @@
                     <form action="{{ route('contact.send') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text" name="name" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" name="email" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
-                            </div>
-                        </div>
+    <!-- Name Field -->
+    <div>
+        <label class="block text-lg font-medium text-gray-700">Name</label>
+        <input type="text" name="name" class="mt-2 block w-full p-4 shadow-sm sm:text-lg border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+    </div>
+    
+    <!-- Email Field -->
+    <div>
+        <label class="block text-lg font-medium text-gray-700">Email</label>
+        <input type="email" name="email" class="mt-2 block w-full p-4 shadow-sm sm:text-lg border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+    </div>
+</div>
+
 
                         <div class="mt-6">
                             <label class="block text-sm font-medium text-gray-700">Message</label>

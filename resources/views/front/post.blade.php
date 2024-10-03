@@ -4,7 +4,7 @@
     <section class="w-full flex flex-col items-center px-3">
         <!-- Banner Image -->
         <!-- <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-80 object-cover"> -->
-        <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-auto max-h-64 object-contain">
+        <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-64 object-cover">
 
 
         <article class="flex flex-col shadow my-4 w-full">
