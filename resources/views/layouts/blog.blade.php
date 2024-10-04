@@ -77,168 +77,77 @@
 
     <!-- Navigation Bar -->
     <nav class="w-full py-4 primary-bg shadow">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
-            <nav>
-                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                    <img src="{{ asset('/import/assets/logo.png') }}" style="width:20%; height:20%;" alt="Logo">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <nav class="flex items-center w-full md:w-auto justify-between">
+                <img src="{{ asset('/import/assets/logo.png') }}" class="w-1/3 md:w-20" alt="Logo">
+                <button class="text-white inline-block md:hidden focus:outline-none" @click="navOpen = !navOpen">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="hidden md:flex items-center font-bold text-sm text-white uppercase no-underline">
                     @foreach ($pages_nav as $page)
-                        <li><a class="hover:text-gray-200 hover:underline px-4"
-                                href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
                     @endforeach
-                    <li><a class="hover:text-gray-200 hover:underline px-4"
-                                href="{{ route('webhome') }}">Home</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4"
-                                href="{{ route('about.index') }}">ABOUT US</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4"
-                                href="{{ route('contact.index') }}">CONTACT US</a></li>
-
-                                <div x-data="{ open: false }" class="relative">
-    <!-- Services Dropdown -->
-    <button @click="open = !open"
-        class="font-bold text-sm text-white uppercase hover:bg-blue-200 hover:underline px-4">
-        SERVICES
-        <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-        </svg>
-    </button>
-
-    <!-- Dropdown Menu for Categories -->
-    <div x-show="open" @click.away="open = false"
-        class="absolute bg-green-600 border border-green-500 rounded shadow-lg mt-2 w-80 capitalize transition duration-300"> <!-- Changed background to green -->
-        @forelse ($categories as $category)
-            <a href="{{ route('category.show', $category->slug) }}"
-                class="block hover:bg-green-700 text-white py-2 px-4"> <!-- Darker hover effect on green -->
-                {{ $category->name }}
-            </a>
-        @empty
-            <span class="block py-2 px-4 text-gray-200">No Categories!</span> <!-- Adjusted empty state text to light gray -->
-        @endforelse
-    </div>
-</div>
- <!-- 
-                    @auth
-                       <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button class="py-2 px-4 bg-red-500 hover:bg-red-700 text-white">LogOut</button>
-                        </form> -->
-                    <!-- @else
-                        <li><a class="py-2 px-4 mr-2 bg-gray-500 hover:bg-gray-700 text-white"
-                                href="{{ route('register') }}">Register</a></li>
-                        <li><a class="py-2 px-4 bg-green-500 hover:bg-green-700 text-white"
-                                href="{{ route('login') }}">Login</a></li>
-                    @endauth
-                     -->
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('webhome') }}">Home</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('about.index') }}">ABOUT US</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('contact.index') }}">CONTACT US</a></li>
                 </ul>
             </nav>
-
-          
         </div>
     </nav>
 
     <!-- Main Content -->
     <div class="flex flex-wrap py-8">
-    <!-- Main Section -->
-    <section class="w-full flex flex-col items-center px-3">
-
-    
+        <section class="w-full flex flex-col items-center px-3">
             {{ $slot }}
-            
         </section>
-
-        <!-- Sidebar Section -->
-        <!-- <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
-            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                <p class="text-xl font-semibold pb-5 primary-text">Top Users</p>
-                @forelse ($top_users as $topuser)
-                    <div class="hover:bg-gray-200">
-                        <a href="">{{ $topuser->name }}</a>
-                    </div>
-                @empty
-                    <span class="secondary-text">No Users yet.</span>
-                @endforelse
-            </div>
-
-            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                <p class="text-xl font-semibold pb-5 primary-text">Contact Information</p>
-                <p class="secondary-text">Phone: {{ $setting->phone }}</p>
-                <p class="secondary-text">Address: {{ $setting->address }}</p>
-            </div>
-
-            
-        </aside> -->
     </div>
 
-  <!-- Footer Section -->
-<footer class="footer-bg bg-gray-800">
-    <div class="container mx-auto py-8 px-8 md:px-4">
-        <div class="flex flex-wrap justify-between">
-            <!-- Contact Section -->
-            <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                <p class="text-white font-semibold text-lg">Contact</p>
-                <ul class="mt-4 space-y-2">
-                    <!-- Phone -->
-                    <li class="text-gray-400 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l3.6 7.2a1 1 0 00.8.4H18l2-3.6a1 1 0 00-.2-1.2L15.4 4a1 1 0 00-1.2-.2L10 6H7a1 1 0 00-1 1v3L4 8.4V5z" />
-                        </svg>
-                    75 675 683 575
-                    </li>
-                    <!-- Email -->
-                    <li class="text-gray-400 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14v7" />
-                        </svg>
-                        enquiries@pioneerau.com
-                    </li>
-                    <!-- Address -->
-                    <li class="text-gray-400 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
-                        </svg>
-                        17 Gracy Perry Street, Wright, ACT 2611
-                    </li>
-                </ul>
-            </div>
+    <!-- Footer Section -->
+    <footer class="footer-bg bg-gray-800">
+        <div class="container mx-auto py-8 px-4">
+            <div class="flex flex-wrap justify-between">
+                <!-- Contact Section -->
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <p class="text-white font-semibold text-lg">Contact</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="text-gray-400 flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i> 75 675 683 575
+                        </li>
+                        <li class="text-gray-400 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> enquiries@pioneerau.com
+                        </li>
+                        <li class="text-gray-400 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i> 17 Gracy Perry Street, Wright, ACT 2611
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- Quick Links Section -->
-            <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                <p class="text-white font-semibold text-lg">Quick Links</p>
-                <ul class="mt-4">
-                    @foreach ($pages_nav as $page)
-                        <li><a class="text-gray-400 hover:text-blue-400" href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
-                    @endforeach
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('webhome') }}">Home</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('about.index') }}">About Us</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('contact.index') }}">Contact Us</a></li>
-                </ul>
-            </div>
+                <!-- Quick Links Section -->
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <p class="text-white font-semibold text-lg">Quick Links</p>
+                    <ul class="mt-4 space-y-2">
+                        <li><a class="footer-link hover:underline text-gray-400" href="{{ route('privacy') }}">Privacy Policy</a></li>
+                        <li><a class="footer-link hover:underline text-gray-400" href="{{ route('terms') }}">Terms & Conditions</a></li>
+                        <li><a class="footer-link hover:underline text-gray-400" href="{{ route('faq') }}">FAQ</a></li>
+                    </ul>
+                </div>
 
-            <!-- Aboriginal Acknowledgement Image -->
-            <div class="w-full md:w-auto flex justify-end items-center mt-4 md:mt-0">
-                <img src="{{ asset('/import/assets/aboriginal-acknowledgement.png') }}" alt="Aboriginal Acknowledgement" class="h-40 md:h-48">
+                <!-- Subscribe Section -->
+                <div class="w-full md:w-1/3">
+                    <p class="text-white font-semibold text-lg">Subscribe</p>
+                    <form class="mt-4">
+                        <div class="flex items-center border-b border-b-2 border-gray-500 py-2">
+                            <input class="bg-transparent appearance-none border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" placeholder="youremail@example.com" aria-label="Email">
+                            <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-600 text-sm text-white py-1 px-2 rounded" type="button">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Bottom Footer with Separate Color for Copyright -->
-    <div class="py-4 bg-gray-900">
-        <div class="container mx-auto flex flex-wrap items-center justify-between">
-            <!-- Logo Section -->
-            <div class="w-full md:w-1/3 mb-6 md:mb-0 text-left">
-                <a href="{{ route('webhome') }}">
-                    <img src="{{ asset('/import/assets/logo.png') }}" alt="Footer Logo" class="h-16 md:h-24">
-                </a>
-                <p class="mt-4 text-gray-400">{{ $setting->site_desc }}</p>
-            </div>
+</body>
 
-            <!-- Copyright Info -->
-            <p class="text-white text-sm">© {{ date('Y') }} {{ config('app.name') }}</p>
-        </div>
-    </div>
-</footer>
-
-
-
+</html>
