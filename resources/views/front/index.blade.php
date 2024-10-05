@@ -65,58 +65,86 @@
 
     <!-- Card Section -->
     <div style="
-            background: linear-gradient(to bottom right, #f8f9fa, #e9ecef); /* Gradient background */
-            padding: 20px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-            width: 50%; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
-            text-align: center;">
-        <h2 style="font-size: 2rem; font-weight: 600; margin-bottom: 16px; color: #333;">        Welcome to Pioneer Disability Services</h2>
-        <p style="margin-bottom: 16px; color: #555; text-align: justify; justify-content: space-between;">
-  Pioneer Disability Services Pty Ltd is a newly registered NDIS provider, distinguished by our unique blend of expertise, commitment to innovation, and dedication to participant-centered care. Our team consists of seasoned professionals with extensive healthcare backgrounds, bringing a wealth of experience to the disability support sector.
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef); /* Gradient background */
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    width: 50%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    text-align: center;
+    margin: auto; /* Centers the div on the screen */
+" class="responsive-section">
+    <h2 style="font-size: 2rem; font-weight: 600; margin-bottom: 16px; color: #333;">Welcome to Pioneer Disability Services</h2>
+    <p style="margin-bottom: 16px; color: #555; text-align: justify;">
+        Pioneer Disability Services Pty Ltd is a newly registered NDIS provider, distinguished by our unique blend of expertise, commitment to innovation, and dedication to participant-centered care. Our team consists of seasoned professionals with extensive healthcare backgrounds, bringing a wealth of experience to the disability support sector.
 
-  We stand out for our personalized support services, which are tailored to the unique needs and aspirations of each individual, fostering higher participant satisfaction and outcomes. We are also devoted to continuous improvement, investing in staff training, technology and staying current with industry trends to ensure top-quality service delivery.
+        We stand out for our personalized support services, which are tailored to the unique needs and aspirations of each individual, fostering higher participant satisfaction and outcomes. We are also devoted to continuous improvement, investing in staff training, technology and staying current with industry trends to ensure top-quality service delivery.
 
-  Ultimately, our success is measured by the positive impact we make on the lives of NDIS participants, empowering them to lead fulfilling and independent lives while making a meaningful difference in the community.
-</p>
+        Ultimately, our success is measured by the positive impact we make on the lives of NDIS participants, empowering them to lead fulfilling and independent lives while making a meaningful difference in the community.
+    </p>
 
-        <!-- <p style="margin-bottom: 16px; color: #555;">At Pioneer Disability Services, we are committed to providing comprehensive services and support for individuals with disabilities. Our mission is to empower everyone to live life to the fullest, with dignity, independence, and the opportunity to achieve their goals.</p>
-        <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p> -->
-
-
-        <!-- Links Section -->
-        <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center;"> <!-- Added justify-content: center for alignment -->
-    <a href="{{ route('about.index') }}" style="
-        background-color: #007bff; /* Blue background */
-        color: white; 
-        padding: 10px 20px; 
-        border-radius: 25px; /* Rounded corners */
-        text-decoration: none; 
-        text-align: center;">
-        Learn More
-    </a>
-    <a href="#" style="
-        background-color: #28a745; /* Green background */
-        color: white; 
-        padding: 10px 20px; 
-        border-radius: 25px; /* Rounded corners */
-        text-decoration: none; 
-        text-align: center;">
-        Referral Form
-    </a>
-    <a href="{{ route('contact.index') }}" style="
-        background-color: #17a2b8; /* Teal background */
-        color: white; 
-        padding: 10px 20px; 
-        border-radius: 25px; /* Rounded corners */
-        text-decoration: none; 
-        text-align: center;">
-        Contact Us
-    </a>
+    <!-- Links Section -->
+    <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"> <!-- Added flex-wrap: wrap for responsiveness -->
+        <a href="{{ route('about.index') }}" style="
+            background-color: #007bff; /* Blue background */
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            text-align: center;
+            margin-bottom: 10px; /* Added margin for better spacing */
+            flex-grow: 1; /* Allow button to grow on mobile screens */
+        ">
+            Learn More
+        </a>
+        <a href="#" style="
+            background-color: #28a745; /* Green background */
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            text-align: center;
+            margin-bottom: 10px; /* Added margin for better spacing */
+            flex-grow: 1; /* Allow button to grow on mobile screens */
+        ">
+            Referral Form
+        </a>
+        <a href="{{ route('contact.index') }}" style="
+            background-color: #17a2b8; /* Teal background */
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            text-align: center;
+            margin-bottom: 10px; /* Added margin for better spacing */
+            flex-grow: 1; /* Allow button to grow on mobile screens */
+        ">
+            Contact Us
+        </a>
+    </div>
 </div>
+
+<!-- Media Queries for Mobile Responsiveness -->
+<style>
+    @media (max-width: 768px) {
+        .responsive-section {
+            width: 90%; /* Reduce width on mobile */
+            padding: 15px; /* Adjust padding for smaller screens */
+        }
+        .responsive-section h2 {
+            font-size: 1.5rem; /* Smaller font for mobile */
+        }
+        .responsive-section p {
+            font-size: 0.9rem; /* Adjust text size for better readability */
+        }
+        .responsive-section a {
+            width: 100%; /* Buttons take full width on mobile */
+            padding: 10px; /* Ensure proper spacing */
+        }
+    }
+</style>
 
 
     </div>
