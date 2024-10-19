@@ -239,7 +239,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
                         </svg>
-                        17 Gracy Perry Street, Wright, ACT 2611
+                        P O Box 3283, Weston Creek, ACT-2611
                     </li>
                 </ul>
             </div>
