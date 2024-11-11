@@ -24,7 +24,7 @@
         width: 100%; 
         height: 600px;">
     <div class="h-full w-full bg-opacity-50 bg-black flex items-center justify-center">
-        <h1 class="text-white text-5xl font-bold">Pioneer Disability Services PTY LTD</h1>
+        <!-- <h1 class="text-white text-5xl font-bold">Pioneer Disability Services PTY LTD</h1> -->
     </div>
 
 

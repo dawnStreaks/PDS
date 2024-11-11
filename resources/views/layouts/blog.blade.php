@@ -77,7 +77,7 @@
 
     <!-- Navigation Bar -->
 <!-- Navigation Bar -->
-<nav class="w-full py-4 bg-blue-900 shadow"> <!-- Changed background color to a darker blue -->
+<nav class="w-full py-4 bg-gray-800 shadow"> <!-- Changed background color to a darker blue -->
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
         <!-- Logo Section -->
         <div class="flex justify-between items-center w-full md:w-auto">
@@ -244,6 +244,12 @@
                 </ul>
             </div>
 
+            <!-- Aboriginal Acknowledgement Image -->
+
+            <div class="w-full md:w-auto text-right mt-4 md:mt-0">
+    <img src="{{ asset('/import/assets/aboriginal-acknowledgement.png') }}" alt="Aboriginal Acknowledgement" class="h-96 md:h-96">
+</div>
+
             <!-- Quick Links Section -->
             <div class="w-full md:w-1/3 mb-6 md:mb-0">
                 <p class="text-white font-semibold text-lg">Quick Links</p>
@@ -257,9 +263,7 @@
                 </ul>
             </div>
 
-            <!-- Aboriginal Acknowledgement Image -->
-            <div class="w-full md:w-auto text-right mt-4 md:mt-0">
-            <img src="{{ asset('/import/assets/aboriginal-acknowledgement.png') }}" alt="Aboriginal Acknowledgement" class="h-32 md:h-32">            </div>
+            
         </div>
     </div>
 
