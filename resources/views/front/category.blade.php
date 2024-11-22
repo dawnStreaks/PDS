@@ -9,19 +9,25 @@
                 <!-- <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
                         <img src="{{ $post->image }}" width="1000" height="500">
                 </a> -->
-                <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
+                <!-- <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
                       <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->title }}">
-                </a>
+                </a> -->
+                <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
+        <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->title }}">
+        <div class="absolute top-0 left-0 right-0 bottom-0  flex justify-center items-center text-white p-6">
+            <a href="{{ route('post.show', $post->slug) }}" class="text-3xl font-bold hover:text-gray-700">{{ $post->title }}</a>
+        </div>
+    </a>
 
                 <div class="bg-white flex flex-col justify-start p-6">
-                    <a href="{{ route('category.show', $post->category->slug) }} "
-                        class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
-                    <a href="{{ route('post.show', $post->slug) }}"
-                        class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</a>
-                    <p href="#" class="text-sm pb-1">
+                    <!-- <a href="{{ route('category.show', $post->category->slug) }} "
+                        class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a> -->
+                    <!-- <a href="{{ route('post.show', $post->slug) }}"
+                        class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</a> -->
+                    <!-- <p href="#" class="text-sm pb-1">
                         By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>,
-                        <!-- Published on {{ $post->created_at }} -->
-                    </p>
+                        //Published on {{ $post->created_at }} 
+                    </p> -->
                     <p class="pb-3">{!! $post->content !!} ...</p>
                     {{-- <br /> --}}
                     <!-- <a href="{{ route('post.show', $post->slug) }}"
