@@ -24,7 +24,7 @@
         width: 100%; 
         height: 600px;">
     <div class="h-full w-full bg-opacity-50 bg-black flex items-center justify-center">
-        <!-- <h1 class="text-white text-5xl font-bold">Pioneer Disability Services PTY LTD</h1> -->
+        <h1 class="text-white text-5xl font-bold">Pioneer Disability Services PTY LTD</h1>
     </div>
 
 
@@ -34,14 +34,14 @@
 
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
-<section class="w-full bg-white text-center py-16">
+<!-- <section class="w-full bg-white text-center py-16">
         <div class="max-w-7xl mx-auto px-4">
             <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
                 PIONEER DISABILITY SERVICES 
             </h1>
         
         </div>
-    </section>
+    </section> -->
 <!-- Space Between Sections -->
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
@@ -153,53 +153,39 @@
 <section class="w-full bg-white text-center py-16">
         <div class="max-w-7xl mx-auto px-4">
             <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
-                PIONEER DISABILITY SERVICES 
-            </h1>
-            <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p>
+            We provide ten NDIS services         </h1>
+            <!-- <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p> -->
 
         </div>
     </section>
 
 
     <!-- Posts Section -->
-    <section class="w-full bg-gray-50 py-12">
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+    
+<section class="w-full bg-gray-50 py-12">
+    <div class="max-w-[1400px] mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         @forelse ($posts as $post)
-        <article class="bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600" style="max-height: 400px;"> <!-- Reduced card height -->
-            <!-- Post Image -->
-            <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-90">
-                <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-48 object-cover"> <!-- Adjusted image height -->
+        <article class="relative bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600">
+            <!-- Image with text overlay -->
+            <a href="{{ route('category.show', $post->category->slug) }}" class="block relative group">
+            <!-- <a href="{{ route('category.show', $post->category->slug) }}" class="text-blue-600 text-sm font-bold uppercase pb-2"> -->
+                    <!-- {{ $post->category->name }} -->
+                <!-- </a> -->
+
+                <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-64 object-cover">
+                <!-- Always visible overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                    <h1 class="text-white text-xl font-bold text-center">{{ $post->category->name }}</h1>
+                </div>
             </a>
-            <!-- Post Content -->
-            <div class="p-4 flex flex-col justify-start" style="max-height: 250px; overflow: hidden;"> <!-- Reduced content height -->
-                <!-- Post Category -->
-                <a href="{{ route('category.show', $post->category->slug) }}" class="text-blue-600 text-sm font-bold uppercase pb-2">
-                    {{ $post->category->name }}
-                </a>
-                <!-- Author and Date -->
-               
-                <!-- Post Snippet -->
-                <p class="text-gray-600">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 30) }}</p>
-                <!-- Continue Reading Link -->
-                <a href="{{ route('category.show', $post->category->slug) }}" style="
-                    background-color: #007bff; /* Button background color */
-                    color: white; /* Text color */
-                    padding: 8px 8px; /* Reduced padding for button */
-                    border-radius: 25px; /* Rounded corners */
-                    text-decoration: none; /* Remove underline */
-                    display: inline-block; /* Make the link behave like a button */
-                    font-weight: bold; /* Bold text */
-                    transition: background-color 0.3s ease; /* Smooth transition */
-                ">
-                    Continue Reading <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
         </article>
         @empty
-        <p class="text-gray-600">No Posts have been added.</p>
+        <p class="text-gray-600 col-span-4 text-center">No Posts have been added.</p>
         @endforelse
     </div>
 </section>
+
+
 
 
     <!-- Pagination Section -->
