@@ -12,12 +12,19 @@
                 <!-- <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
                       <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->title }}">
                 </a> -->
-                <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
-        <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->title }}">
-        <div class="absolute top-0 left-0 right-0 bottom-0  flex justify-center items-center text-white p-6">
-            <a href="{{ route('post.show', $post->slug) }}" class="text-3xl font-bold hover:text-gray-700">{{ $post->title }}</a>
-        </div>
-    </a>
+
+        <!-- <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{$post->category->name }}">
+             {{ $post->category->name }} -->
+             <div class="relative w-full">
+    <!-- Image -->
+    <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->category->name }}">
+
+    <!-- Category name overlay -->
+    <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+    <span class="text-white text-4xl font-bold">{{ $post->category->name }}</span>
+    </div>
+</div>
+
 
                 <div class="bg-white flex flex-col justify-start p-6">
                     <!-- <a href="{{ route('category.show', $post->category->slug) }} "
