@@ -78,12 +78,12 @@
     <!-- Navigation Bar -->
 <!-- Navigation Bar -->
 <nav class="w-full py-4 bg-gray-800 shadow"> <!-- Changed background color to a darker blue -->
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-center">
         <!-- Logo Section -->
         <div class="flex justify-between items-center w-full md:w-auto">
         <img src="{{ asset('/import/assets/logo.png') }}" 
-     class="h-16 w-auto md:h-20 drop-shadow-lg" 
-     alt="Logo"> <!-- Added drop shadow to the logo -->
+     class="h-20 w-auto md:h-28 drop-shadow-lg" 
+     alt="Logo"> <!-- Made logo bigger as requested -->
 
             <!-- Hamburger Menu for Mobile -->
             <div class="md:hidden">
@@ -100,7 +100,7 @@
 
         <!-- Full Menu for Desktop -->
         <div class="hidden md:flex w-full md:w-auto items-center">
-            <ul class="flex items-center font-bold text-sm text-white uppercase">
+            <ul class="flex items-center font-bold text-lg text-white uppercase">
                 @foreach ($pages_nav as $page)
                     <li><a class="hover:text-gray-200 hover:underline px-4"
                            href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
@@ -114,22 +114,17 @@
                        
                 <div x-data="{ open: false }" class="relative">
                     <button @click="open = !open"
-                        class="font-bold text-sm text-white uppercase hover:bg-blue-200 hover:underline px-4">
+                        class="font-bold text-lg text-white uppercase hover:text-gray-200 hover:underline px-4">
                         Services
-                        <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M19 9l-7 7-7-7"></path>
-                        </svg>
                     </button>
 
                     <div x-show="open" @click.away="open = false"
-                        class="absolute bg-green-600 border border-green-500 rounded shadow-lg mt-2 w-80 capitalize transition duration-300">
+                        class="absolute bg-green-600 border border-green-500 rounded shadow-lg mt-2 w-80 uppercase transition duration-300">
                         @forelse ($categories as $category)
                             <a href="{{ route('category.show', $category->slug) }}"
-                               class="block hover:bg-green-700 text-white py-2 px-4">{{ $category->name }}</a>
+                               class="block hover:bg-green-700 text-white font-bold text-lg py-2 px-4">{{ $category->name }}</a>
                         @empty
-                            <span class="block py-2 px-4 text-gray-200">No Categories!</span>
+                            <span class="block py-2 px-4 text-white font-bold text-lg">No Categories!</span>
                         @endforelse
                     </div>
                 </div>
@@ -138,36 +133,31 @@
 
         <!-- Mobile Menu -->
         <div :class="{ 'block': open, 'hidden': !open }" class="w-full md:hidden">
-            <ul class="block text-white text-center font-bold text-sm uppercase">
+            <ul class="block text-white text-center font-bold text-lg uppercase">
                 @foreach ($pages_nav as $page)
-                    <li><a class="block hover:bg-blue-200 py-2"
+                    <li><a class="block hover:text-gray-200 py-2"
                            href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
                 @endforeach
-                <li><a class="block hover:bg-blue-200 py-2"
+                <li><a class="block hover:text-gray-200 py-2"
                        href="{{ route('webhome') }}">Home</a></li>
-                <li><a class="block hover:bg-blue-200 py-2"
+                <li><a class="block hover:text-gray-200 py-2"
                        href="{{ route('about.index') }}">About Us</a></li>
-                <li><a class="block hover:bg-blue-200 py-2"
+                <li><a class="block hover:text-gray-200 py-2"
                        href="{{ route('contact.index') }}">Contact Us</a></li>
 
                 <!-- Mobile Dropdown for Services -->
                 <div x-data="{ openMobile: false }">
                     <button @click="openMobile = !openMobile"
-                            class="block text-white hover:bg-blue-200 py-2">
+                            class="block text-white font-bold text-lg hover:text-gray-200 py-2">
                         Services
-                        <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M19 9l-7 7-7-7"></path>
-                        </svg>
                     </button>
                     <div x-show="openMobile" @click.away="openMobile = false"
                          class="bg-green-600 border border-green-500 mt-2 rounded shadow-lg transition duration-300">
                         @forelse ($categories as $category)
                             <a href="{{ route('category.show', $category->slug) }}"
-                               class="block hover:bg-green-700 text-white py-2 px-4">{{ $category->name }}</a>
+                               class="block hover:bg-green-700 text-white font-bold text-lg py-2 px-4">{{ $category->name }}</a>
                         @empty
-                            <span class="block py-2 px-4 text-gray-200">No Categories!</span>
+                            <span class="block py-2 px-4 text-white font-bold text-lg">No Categories!</span>
                         @endforelse
                     </div>
                 </div>

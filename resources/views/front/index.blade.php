@@ -24,7 +24,7 @@
         width: 100%; 
         height: 600px;">
     <div class="h-full w-full bg-opacity-50 bg-black flex items-center justify-center">
-        <h1 class="text-white text-5xl font-bold">Pioneer Disability Services PTY LTD</h1>
+        <!-- Removed duplicate heading -->
     </div>
 
 
@@ -76,7 +76,7 @@
     text-align: center;
     margin: auto; /* Centers the div on the screen */
 " class="responsive-section">
-    <h2 style="font-size: 2rem; font-weight: 600; margin-bottom: 16px; color: #333;">Welcome to Pioneer Disability Services</h2>
+    <!-- Removed Welcome heading as requested -->
     <p style="margin-bottom: 16px; color: #555; text-align: justify;">
         Pioneer Disability Services Pty Ltd is a newly registered NDIS provider, distinguished by our unique blend of expertise, commitment to innovation, and dedication to participant-centered care. Our team consists of seasoned professionals with extensive healthcare backgrounds, bringing a wealth of experience to the disability support sector.
 
@@ -150,14 +150,7 @@
     </div>
 </div>
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
-<section class="w-full bg-white text-center py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <h1 class="text-5xl font-extrabold text-gray-800 mb-6">
-            We provide ten NDIS services         </h1>
-            <!-- <p style="margin-bottom: 16px; color: #555;">We provide ten NDIS service as listed below in the services section.</p> -->
-
-        </div>
-    </section>
+    <!-- Removed NDIS services heading as requested -->
 
 
     <!-- Posts Section -->
