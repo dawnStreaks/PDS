@@ -49,7 +49,7 @@
 </svg>
                     </div>
                     <h3 class="text-lg font-semibold mb-2">Our Address</h3>
-                    <p class="text-gray-600">17 Grace Perry Street, Wright, ACT 2611</p>
+                    <p class="text-gray-600">P O Box 3283, Weston Creek, ACT-2611</p>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
         <div class="container mx-auto">
             <div class="w-full h-64">
                 <iframe 
-                    src="https://maps.google.com/maps?q=Pioneer%20Disability%20Services%20Pty%20Ltd,%2017%20Grace%20Perry%20Street,%20Wright,%20ACT%202611&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    src="https://maps.google.com/maps?q=P%20O%20Box%203283,%20Weston%20Creek,%20ACT-2611&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                     frameborder="0" 
                     style="border:0; width: 100%; height: 100%;" 
                     allowfullscreen>

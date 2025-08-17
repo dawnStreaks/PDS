@@ -119,7 +119,7 @@
                     </button>
 
                     <div x-show="open" @click.away="open = false"
-                        class="absolute bg-green-600 border border-green-500 rounded shadow-lg mt-2 w-80 uppercase transition duration-300">
+                        class="absolute bg-green-600 border border-green-500 rounded shadow-lg mt-2 w-80 uppercase transition duration-300 z-50">
                         @forelse ($categories as $category)
                             <a href="{{ route('category.show', $category->slug) }}"
                                class="block hover:bg-green-700 text-white font-bold text-lg py-2 px-4">{{ $category->name }}</a>
