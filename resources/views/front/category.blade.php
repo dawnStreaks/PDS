@@ -17,7 +17,7 @@
              {{ $post->category->name }} -->
              <div class="relative w-full">
     <!-- Image -->
-    <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->category->name }}">
+    <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->category->name }}" style="min-height: 350px; max-height: 450px;">
 
     <!-- Category name overlay -->
     <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
