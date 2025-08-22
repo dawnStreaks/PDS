@@ -82,8 +82,8 @@
         <!-- Logo Section -->
         <div class="flex justify-between items-center w-full md:w-auto">
         <img src="{{ asset('/import/assets/logo.png') }}" 
-     class="h-20 w-auto md:h-28 drop-shadow-lg" 
-     alt="Logo"> <!-- Made logo bigger as requested -->
+     class="h-16 w-auto sm:h-20 md:h-24 lg:h-28 drop-shadow-lg" 
+     alt="Logo"> <!-- Responsive logo -->
 
             <!-- Hamburger Menu for Mobile -->
             <div class="md:hidden">
@@ -100,7 +100,7 @@
 
         <!-- Full Menu for Desktop -->
         <div class="hidden md:flex w-full md:w-auto items-center">
-            <ul class="flex items-center font-bold text-lg text-white uppercase">
+            <ul class="flex items-center font-bold text-sm sm:text-base md:text-lg text-white uppercase">
                 @foreach ($pages_nav as $page)
                     <li><a class="hover:text-gray-200 hover:underline px-4"
                            href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
@@ -169,9 +169,9 @@
 
 
     <!-- Main Content -->
-    <div class="flex flex-wrap py-8">
+    <div class="flex flex-wrap py-4 sm:py-6 md:py-8">
     <!-- Main Section -->
-    <section class="w-full flex flex-col items-center px-3">
+    <section class="w-full flex flex-col items-center px-2 sm:px-3 md:px-4">
 
     
             {{ $slot }}

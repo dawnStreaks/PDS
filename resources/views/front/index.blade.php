@@ -156,7 +156,7 @@
     <!-- Posts Section -->
     
 <section class="w-full bg-gray-50 py-12">
-    <div class="max-w-[1400px] mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="max-w-[1400px] mx-auto px-2 sm:px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         @forelse ($posts as $post)
         <article class="relative bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600">
             <!-- Image with text overlay -->
@@ -165,10 +165,10 @@
                     <!-- {{ $post->category->name }} -->
                 <!-- </a> -->
 
-                <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-64 object-cover">
+                <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-full h-48 sm:h-56 md:h-64 object-cover">
                 <!-- Always visible overlay -->
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <h1 class="text-white text-xl font-bold text-center">{{ $post->category->name }}</h1>
+                    <h1 class="text-white text-sm sm:text-base md:text-lg lg:text-xl font-bold text-center">{{ $post->category->name }}</h1>
                 </div>
             </a>
         </article>
