@@ -46,7 +46,14 @@
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
 <!-- Container for Banner and Card -->
-<div style="display: flex; width: 100%;">
+<div style="display: flex; width: 100%; flex-direction: column;" class="banner-card-container">
+<style>
+@media (min-width: 769px) {
+    .banner-card-container {
+        flex-direction: row !important;
+    }
+}
+</style>
 
     <!-- Banner Section -->
     <section 
@@ -130,7 +137,7 @@
 <style>
     @media (max-width: 768px) {
         .responsive-section {
-            width: 90%; /* Reduce width on mobile */
+            width: 100% !important; /* Full width on mobile */
             padding: 15px; /* Adjust padding for smaller screens */
         }
         .responsive-section h2 {
@@ -138,6 +145,8 @@
         }
         .responsive-section p {
             font-size: 0.9rem; /* Adjust text size for better readability */
+            text-align: left !important; /* Force left alignment */
+            clear: both !important; /* Clear any floats */
         }
         .responsive-section a {
             width: 100%; /* Buttons take full width on mobile */
