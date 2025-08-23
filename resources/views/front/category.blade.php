@@ -1,65 +1,50 @@
 <x-blog-layout title="{{ $category_name }}">
-    <!-- Posts Section -->
-    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-
-
-        <!-- Article -->
-        @forelse ($posts as $post)
-            <article class="flex flex-col shadow my-4">
-                <!-- <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
-                        <img src="{{ $post->image }}" width="1000" height="500">
-                </a> -->
-                <!-- <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
-                      <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->title }}">
-                </a> -->
-
-        <!-- <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{$post->category->name }}">
-             {{ $post->category->name }} -->
-             <div class="relative w-full">
-    <!-- Image -->
-    <img src="{{ $post->image }}" class="w-full h-auto object-cover" alt="{{ $post->category->name }}" style="min-height: 350px; max-height: 450px;">
-
-    <!-- Category name overlay -->
-    <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-    <span class="text-white text-4xl font-bold">{{ $post->category->name }}</span>
-    </div>
-</div>
-
-
-                <div class="bg-white flex flex-col justify-start p-6">
-                    <!-- <a href="{{ route('category.show', $post->category->slug) }} "
-                        class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a> -->
-                    <!-- <a href="{{ route('post.show', $post->slug) }}"
-                        class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</a> -->
-                    <!-- <p href="#" class="text-sm pb-1">
-                        By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>,
-                        //Published on {{ $post->created_at }} 
-                    </p> -->
-                    <p class="pb-3">{!! $post->content !!} ...</p>
-                    {{-- <br /> --}}
-                    <!-- <a href="{{ route('post.show', $post->slug) }}"
-                        class="mt-px uppercase text-gray-800 font-bold hover:text-black">Continue Reading <i
-                            class="fas fa-arrow-right"></i></a> -->
-                </div>
-            </article>
-        @empty
-            <p>
-                No Posts has been added
-            </p>
-        @endforelse
-
-        <!-- Pagination -->
-        <div class="flex items-center py-8">
-            {{ $posts->links() }}
-
-            {{-- <a href="#"
-                class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
-            <a href="#"
-                class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
-            <a href="#"
-                class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next
-                <i class="fas fa-arrow-right ml-2"></i></a> --}}
+    <style>
+        .uniform-content * { font-family: 'Karla', sans-serif !important; box-sizing: border-box !important; }
+        .uniform-content div { font-size: 14px !important; line-height: 1.5 !important; color: #1f2937 !important; }
+        .uniform-content p { font-size: 14px !important; line-height: 1.5 !important; margin-bottom: 12px !important; text-align: left !important; color: #1f2937 !important; }
+        .uniform-content h1, .uniform-content h2, .uniform-content h3 { font-size: 16px !important; font-weight: 600 !important; margin: 16px 0 8px 0 !important; text-align: left !important; color: #111827 !important; }
+        .uniform-content { overflow-x: auto !important; }
+        .uniform-content [style*="text-align"] { text-align: left !important; }
+        .uniform-content [style*="float"] { float: none !important; }
+        .uniform-content [style*="gap:"] { gap: 10px !important; }
+        .uniform-content [style*="margin-bottom: 40px"] { margin-bottom: 20px !important; }
+        @media (max-width: 640px) {
+            .uniform-content div, .uniform-content p, .uniform-content img { display: block !important; width: 100% !important; margin-bottom: 15px !important; }
+            .uniform-content [style*="display: flex"] { display: block !important; }
+            .uniform-content [style*="width: 50%"] { width: 100% !important; }
+            .uniform-content [style*="width: 40%"] { width: 100% !important; }
+            .uniform-content [style*="width: 60%"] { width: 100% !important; }
+        }
+        @media (min-width: 640px) {
+            .uniform-content div, .uniform-content p { font-size: 16px !important; margin-bottom: 16px !important; }
+            .uniform-content h1, .uniform-content h2, .uniform-content h3 { font-size: 20px !important; margin: 20px 0 12px 0 !important; }
+        }
+    </style>
+    
+    <section class="w-full bg-gray-50 py-6 md:py-12">
+        <div class="max-w-[1200px] mx-auto px-2 sm:px-4">
+            @forelse ($posts as $post)
+                <article class="bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600 mb-4 md:mb-8">
+                    <div class="relative">
+                        <img src="{{ $post->image }}" alt="{{ $post->category->name }}" class="w-full h-auto object-cover" style="min-height: 250px; max-height: 350px;">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h1 class="text-white text-lg sm:text-xl md:text-2xl font-bold text-center px-2 sm:px-4">{{ $post->category->name }}</h1>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6 md:p-8">
+                        <div class="uniform-content">{!! $post->content !!}</div>
+                    </div>
+                </article>
+            @empty
+                <p class="text-gray-600 text-center text-base md:text-lg">No Posts have been added.</p>
+            @endforelse
         </div>
-
+        
+        <div class="max-w-7xl mx-auto py-4 md:py-8 px-2 sm:px-4">
+            <div class="flex justify-center">
+                {{ $posts->links() }}
+            </div>
+        </div>
     </section>
 </x-blog-layout>
