@@ -53,6 +53,16 @@
         flex-direction: row !important;
     }
 }
+@media (max-width: 768px) {
+    .banner-section {
+        width: 100% !important;
+        height: 300px !important;
+    }
+    .responsive-section {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
 </style>
 
     <!-- Banner Section -->
@@ -66,7 +76,8 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            color: white;">
+            color: white;"
+        class="banner-section">
         <h1 style="font-size: 3rem; font-weight: bold; text-align: center;"></h1>
     </section>
 
