@@ -23,11 +23,11 @@
     </style>
     
     <section class="w-full bg-gray-50 py-6 md:py-12">
-        <div class="max-w-[1200px] mx-auto px-2 sm:px-4">
+        <div class="max-w-[900px] mx-auto px-2 sm:px-4">
             @forelse ($posts as $post)
                 <article class="bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600 mb-4 md:mb-8">
                     <div class="relative">
-                        <img src="{{ $post->image }}" alt="{{ $post->category->name }}" class="w-full h-auto object-cover" style="min-height: 250px; max-height: 350px;">
+                        <img src="{{ $post->image }}" alt="{{ $post->category->name }}" class="w-full h-auto object-cover" style="min-height: 450px; max-height: 600px;">
                         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                             <h1 class="text-white text-lg sm:text-xl md:text-2xl font-bold text-center px-2 sm:px-4">{{ $post->category->name }}</h1>
                         </div>

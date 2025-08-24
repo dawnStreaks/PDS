@@ -77,7 +77,7 @@
 
     <!-- Navigation Bar -->
 <!-- Navigation Bar -->
-<nav class="w-full py-4 bg-gray-800 shadow"> <!-- Changed background color to a darker blue -->
+<nav class="w-full py-4 bg-gray-800 shadow" x-data="{ open: false }"> <!-- Changed background color to a darker blue -->
     <div class="w-full container mx-auto flex flex-wrap items-center justify-center">
         <!-- Logo Section -->
         <div class="flex justify-between items-center w-full md:w-auto">
@@ -171,7 +171,7 @@
     <!-- Main Content -->
     <div class="flex flex-wrap py-4 sm:py-6 md:py-8">
     <!-- Main Section -->
-    <section class="w-full flex flex-col items-center px-2 sm:px-3 md:px-4">
+    <section class="w-3/4 flex flex-col items-center px-2 sm:px-3 md:px-4 mx-auto">
 
     
             {{ $slot }}
