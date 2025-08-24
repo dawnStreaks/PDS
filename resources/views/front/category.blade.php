@@ -31,6 +31,11 @@
                 margin-right: 0 !important;
                 border-radius: 0 !important;
             }
+            .category-container article img {
+                width: 100vw !important;
+                margin-left: calc(50% - 50vw) !important;
+                margin-right: calc(50% - 50vw) !important;
+            }
         }
     </style>
     
