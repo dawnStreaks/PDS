@@ -16,27 +16,19 @@
 
     <!-- First Banner Section -->
 <section 
-    class="bg-cover bg-center h-96 container mx-auto" 
+    class="bg-cover bg-center h-96" 
     style="
         background-image: url('{{ asset('/import/assets/home.jpg') }}'); 
         background-size: cover; 
         background-position: center; 
-        width: 100%; 
-        height: 600px;">
+        width: calc(100vw - 20px); 
+        height: 600px;
+        margin-left: calc(50% - 50vw + 10px);
+        margin-right: calc(50% - 50vw + 10px);">
     <div class="h-full w-full bg-opacity-50 bg-black flex items-center justify-center">
         <!-- Removed duplicate heading -->
     </div>
 </section>
-
-<style>
-@media (max-width: 768px) {
-    .container {
-        max-width: 100vw !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-}
-</style>
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
@@ -53,7 +45,7 @@
 <div style="height: 20px;"></div> <!-- Adjust height as needed -->
 
 <!-- Container for Banner and Card -->
-<div style="display: flex; width: 100%; flex-direction: column;" class="banner-card-container container mx-auto">
+<div style="display: flex; width: calc(100vw - 20px); flex-direction: column; margin-left: calc(50% - 50vw + 10px); margin-right: calc(50% - 50vw + 10px);" class="banner-card-container">
 <style>
 @media (min-width: 769px) {
     .banner-card-container {
@@ -61,11 +53,6 @@
     }
 }
 @media (max-width: 768px) {
-    .banner-card-container {
-        max-width: 100vw !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
     .banner-section {
         width: 100% !important;
         height: 300px !important;
