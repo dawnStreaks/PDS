@@ -20,10 +20,22 @@
             .uniform-content div, .uniform-content p { font-size: 16px !important; margin-bottom: 16px !important; }
             .uniform-content h1, .uniform-content h2, .uniform-content h3 { font-size: 20px !important; margin: 20px 0 12px 0 !important; }
         }
+        @media (max-width: 768px) {
+            .category-container {
+                max-width: 100vw !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .category-container article {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                border-radius: 0 !important;
+            }
+        }
     </style>
     
     <section class="w-full bg-gray-50 py-6 md:py-12">
-        <div class="max-w-[900px] mx-auto px-2 sm:px-4">
+        <div class="max-w-[900px] mx-auto px-2 sm:px-4 category-container">
             @forelse ($posts as $post)
                 <article class="bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blue-600 mb-4 md:mb-8">
                     <div class="relative">
