@@ -26,10 +26,20 @@ class ContactController extends Controller
             'message' => 'required|min:10',
         ]);
 
-        // Send the email
-        Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
-
-        return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
+        try {
+            // Send the email
+            Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
+            
+            // Log successful email
+            \Log::info('Contact form email sent successfully', ['email' => $request->email]);
+            
+            return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Contact form email failed', ['error' => $e->getMessage(), 'email' => $request->email]);
+            
+            return redirect()->route('contact.index')->with('error', 'Sorry, there was an issue sending your message. Please try again later.');
+        }
     }
 }
 
