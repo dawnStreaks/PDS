@@ -214,7 +214,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l3.6 7.2a1 1 0 00.8.4H18l2-3.6a1 1 0 00-.2-1.2L15.4 4a1 1 0 00-1.2-.2L10 6H7a1 1 0 00-1 1v3L4 8.4V5z" />
                         </svg>
-                    0 430 213 37
+                    0 430 213 378
                     </li>
                     <!-- Email -->
                     <li class="text-gray-400 flex items-center">
