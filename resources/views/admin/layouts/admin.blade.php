@@ -67,10 +67,10 @@
                     Writer
                 @endcan
             </a>
-            <button onclick="location.href='{{ route('admin.post.create') }}';"
+            <a href="{{ route('admin.post.create') }}"
                 class="w-full bg-white cta-btn font-semibold py-2 mt-1 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i class="fas fa-plus mr-3"></i> New Post
-            </button>
+            </a>
         </div>
         <nav class="text-white text-base font-semibold">
             <a href="{{ route('admin.index') }}"
@@ -244,7 +244,7 @@
                 </svg>
                 <p>{{ Session::get('message') }}.</p>
             </div>
-        @elseif (Session::has('error')){
+        @elseif (Session::has('error'))
             <div class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3" role="alert">
                 <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                     <path
@@ -252,7 +252,6 @@
                 </svg>
                 <p>{{ Session::get('error') }}.</p>
             </div>
-        }
         @endif
 
         @if ($errors->any())
@@ -309,8 +308,9 @@
             });
         </script>
         <script>
+            var postSlugUrl = '{{ route('admin.post.getslug') }}';
             $('#title').change(function(e) {
-                $.get('{{ route('admin.post.getslug') }}', {
+                $.get(postSlugUrl, {
                         'title': $(this).val()
                     },
                     function(data) {
@@ -327,8 +327,9 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
+            var categorySlugUrl = '{{ route('admin.category.getslug') }}';
             $('#name').change(function(e) {
-                $.get('{{ route('admin.category.getslug') }}', {
+                $.get(categorySlugUrl, {
                         'name': $(this).val()
                     },
                     function(data) {
@@ -345,8 +346,9 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
+            var pageSlugUrl = '{{ route('admin.page.getslug') }}';
             $('#name').change(function(e) {
-                $.get('{{ route('admin.page.getslug') }}', {
+                $.get(pageSlugUrl, {
                         'name': $(this).val()
                     },
                     function(data) {
