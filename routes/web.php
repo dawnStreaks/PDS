@@ -12,6 +12,9 @@
 */
 
 
+// Zoho OAuth callback route
+Route::get('/oauth/zoho/callback', [App\Http\Controllers\ZohoOAuthController::class, 'callback']);
+
 require __DIR__ . '/front.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';

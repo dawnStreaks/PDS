@@ -29,17 +29,22 @@ class ContactController extends Controller
         try {
             // Send the email
             Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
-            
-            // Log successful email
             \Log::info('Contact form email sent successfully', ['email' => $request->email]);
             
-            return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
         } catch (\Exception $e) {
-            // Log the error
+            // Fallback: Log to file for manual review
             \Log::error('Contact form email failed', ['error' => $e->getMessage(), 'email' => $request->email]);
             
-            return redirect()->route('contact.index')->with('error', 'Sorry, there was an issue sending your message. Please try again later.');
+            // Store message in log for manual review
+            \Log::info('CONTACT FORM SUBMISSION', [
+                'name' => $request->name,
+                'email' => $request->email,
+                'message' => $request->message,
+                'timestamp' => now()
+            ]);
         }
+        
+        return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
     }
 }
 
