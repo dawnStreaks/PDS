@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Contact;
 
 class AdminController extends Controller
 {
@@ -17,7 +18,8 @@ class AdminController extends Controller
         $tags = Tag::count();
         $users = User::count();
         $news_letter_users = User::where('news_letter', true)->count();
+        $contacts = Contact::count();
 
-        return view('admin.index', compact('categories', 'posts', 'tags', 'users', 'news_letter_users'));
+        return view('admin.index', compact('categories', 'posts', 'tags', 'users', 'news_letter_users', 'contacts'));
     }
 }

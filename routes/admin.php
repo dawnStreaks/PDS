@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 Route::middleware(['auth', 'can:admin-login'])->name('admin.')->prefix('/admin')->group(function () {
     // This Roles can manage with Admin & Writers with specific policies.
@@ -30,5 +31,6 @@ Route::middleware(['auth', 'can:admin-login'])->name('admin.')->prefix('/admin')
         Route::resource('/page', PageController::class);
         Route::resource('/role', RoleController::class, ['only' => ['index']]);
         Route::resource('/setting', SettingController::class, ['only' => ['index', 'update']]);
+        Route::resource('/contact', AdminContactController::class, ['only' => ['index', 'show', 'destroy']]);
     });
 });

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUsMail;
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 
 
 class ContactController extends Controller
@@ -26,6 +27,13 @@ class ContactController extends Controller
             'message' => 'required|min:10',
         ]);
 
+        // Save to database
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]);
+
         try {
             // Send the email
             Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
@@ -34,14 +42,6 @@ class ContactController extends Controller
         } catch (\Exception $e) {
             // Fallback: Log to file for manual review
             \Log::error('Contact form email failed', ['error' => $e->getMessage(), 'email' => $request->email]);
-            
-            // Store message in log for manual review
-            \Log::info('CONTACT FORM SUBMISSION', [
-                'name' => $request->name,
-                'email' => $request->email,
-                'message' => $request->message,
-                'timestamp' => now()
-            ]);
         }
         
         return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');

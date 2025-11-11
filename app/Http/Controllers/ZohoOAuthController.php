@@ -17,8 +17,8 @@ class ZohoOAuthController extends Controller
         }
 
         try {
-            // Exchange code for access token
-            $response = Http::post('https://accounts.zoho.com/oauth/v2/token', [
+            // Exchange code for access token (use AU server)
+            $response = Http::post('https://accounts.zoho.com.au/oauth/v2/token', [
                 'grant_type' => 'authorization_code',
                 'client_id' => '1000.7ZP6Q5PSEQQQGLHA781JNT5CDCA95V',
                 'client_secret' => env('ZOHO_CLIENT_SECRET'), // Add this to .env
@@ -42,8 +42,16 @@ class ZohoOAuthController extends Controller
                     'access_token' => $data['access_token']
                 ]);
             } else {
-                Log::error('Zoho OAuth failed', ['response' => $response->body()]);
-                return response()->json(['error' => 'Failed to get access token'], 400);
+                Log::error('Zoho OAuth failed', [
+                    'status' => $response->status(),
+                    'response' => $response->body(),
+                    'headers' => $response->headers()
+                ]);
+                return response()->json([
+                    'error' => 'Failed to get access token',
+                    'status' => $response->status(),
+                    'details' => $response->json()
+                ], 400);
             }
         } catch (\Exception $e) {
             Log::error('Zoho OAuth exception', ['error' => $e->getMessage()]);

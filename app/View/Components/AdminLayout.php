@@ -23,7 +23,6 @@ class AdminLayout extends Component
      */
     public function render()
     {
-        $user_avatar = auth()->user()->avatar;
-        return view('admin.layouts.admin', compact('user_avatar'));
+        return view('components.admin-layout');
     }
 }
