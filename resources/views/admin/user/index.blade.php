@@ -2,7 +2,12 @@
 
     <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="w-full text-3xl text-black pb-6">Users</h1>
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl text-black pb-6">Users</h1>
+                <a href="{{ route('admin.user.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Create New User
+                </a>
+            </div>
 
             <div class="w-full mt-12">
                 <p class="text-xl pb-3 flex items-center">

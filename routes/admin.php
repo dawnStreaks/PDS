@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 Route::middleware(['auth', 'can:admin-login'])->name('admin.')->prefix('/admin')->group(function () {
-    // This Roles can manage with Admin & Writers with specific policies.
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::get('/post/search', [PostController::class, 'search'])->name('post.search');
     Route::get('/post/slug-get', [PostController::class, 'getSlug'])->name('post.getslug');
@@ -22,15 +21,12 @@ Route::middleware(['auth', 'can:admin-login'])->name('admin.')->prefix('/admin')
         'tag' => TagController::class,
     ]);
     Route::resource('/account', AccountController::class, ['only' => ['index', 'update']]);
-    // Special To Admin Role Only
-    Route::middleware(['can:admin-only'])->group(function () {
-        Route::get('/category/slug-get', [CategoryController::class, 'getSlug'])->name('category.getslug');
-        Route::get('/page/slug-get', [PageController::class, 'getSlug'])->name('page.getslug');
-        Route::resource('/category', CategoryController::class);
-        Route::resource('/user', UserController::class, ['except' => ['create', 'store', 'show']]);
-        Route::resource('/page', PageController::class);
-        Route::resource('/role', RoleController::class, ['only' => ['index']]);
-        Route::resource('/setting', SettingController::class, ['only' => ['index', 'update']]);
-        Route::resource('/contact', AdminContactController::class, ['only' => ['index', 'show', 'destroy']]);
-    });
+    Route::get('/category/slug-get', [CategoryController::class, 'getSlug'])->name('category.getslug');
+    Route::get('/page/slug-get', [PageController::class, 'getSlug'])->name('page.getslug');
+    Route::resource('/category', CategoryController::class);
+    Route::resource('/user', UserController::class, ['except' => ['show']]);
+    Route::resource('/page', PageController::class);
+    Route::resource('/role', RoleController::class, ['only' => ['index']]);
+    Route::resource('/setting', SettingController::class, ['only' => ['index', 'update']]);
+    Route::resource('/contact', AdminContactController::class, ['only' => ['index', 'show', 'destroy']]);
 });

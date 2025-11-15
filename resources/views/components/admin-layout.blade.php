@@ -61,11 +61,7 @@
         <div class="p-4">
             <a href="{{ route('admin.index') }}"
                 class="text-white text-3xl font-semibold uppercase hover:text-gray-300">
-                @can('admin-only')
-                    Admin
-                @else
-                    Writer
-                @endcan
+                Admin
             </a>
             <a href="{{ route('admin.post.create') }}"
                 class="w-full bg-white cta-btn font-semibold py-2 mt-1 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
@@ -78,13 +74,11 @@
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
-            @can('admin-only')
-                <a href="{{ route('admin.category.index') }}"
-                    class="{{ request()->routeIs('*.category.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white py-4 pl-6 nav-item">
-                    <i class="fas fa-sticky-note mr-3"></i>
-                    Categories
-                </a>
-            @endcan
+            <a href="{{ route('admin.category.index') }}"
+                class="{{ request()->routeIs('*.category.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white py-4 pl-6 nav-item">
+                <i class="fas fa-sticky-note mr-3"></i>
+                Categories
+            </a>
             <a href="{{ route('admin.post.index') }}"
                 class="{{ request()->routeIs('*.post.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
                 <i class="fas fa-newspaper mr-3"></i>
@@ -95,33 +89,31 @@
                 <i class="fas fa-tag mr-3"></i>
                 Tags
             </a>
-            @can('admin-only')
-                <a href="{{ route('admin.page.index') }}"
-                    class="{{ request()->routeIs('*.page.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
-                    <i class="far fa-file mr-3"></i>
-                    Pages
-                </a>
-                <a href="{{ route('admin.role.index') }}"
-                    class="{{ request()->routeIs('*.role.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
-                    <i class="fas fa-user-shield mr-3"></i>
-                    Roles
-                </a>
-                <a href="{{ route('admin.user.index') }}"
-                    class="{{ request()->routeIs('*.user.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
-                    <i class="fas fa-users mr-3"></i>
-                    Users
-                </a>
-                <a href="{{ route('admin.setting.index') }}"
-                    class="{{ request()->routeIs('*.setting.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
-                    <i class="fas fa-wrench mr-3"></i>
-                    Settings
-                </a>
-                <a href="{{ route('admin.contact.index') }}"
-                    class="{{ request()->routeIs('*.contact.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
-                    <i class="fas fa-envelope mr-3"></i>
-                    Contact Submissions
-                </a>
-            @endcan
+            <a href="{{ route('admin.page.index') }}"
+                class="{{ request()->routeIs('*.page.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
+                <i class="far fa-file mr-3"></i>
+                Pages
+            </a>
+            <a href="{{ route('admin.role.index') }}"
+                class="{{ request()->routeIs('*.role.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
+                <i class="fas fa-user-shield mr-3"></i>
+                Roles
+            </a>
+            <a href="{{ route('admin.user.index') }}"
+                class="{{ request()->routeIs('*.user.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
+                <i class="fas fa-users mr-3"></i>
+                Users
+            </a>
+            <a href="{{ route('admin.setting.index') }}"
+                class="{{ request()->routeIs('*.setting.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
+                <i class="fas fa-wrench mr-3"></i>
+                Settings
+            </a>
+            <a href="{{ route('admin.contact.index') }}"
+                class="{{ request()->routeIs('*.contact.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
+                <i class="fas fa-envelope mr-3"></i>
+                Contact Submissions
+            </a>
         </nav>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -190,13 +182,11 @@
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                @can('admin-only')
-                    <a href="{{ route('admin.category.index') }}"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-sticky-note mr-3"></i>
-                        Categories
-                    </a>
-                @endcan
+                <a href="{{ route('admin.category.index') }}"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-sticky-note mr-3"></i>
+                    Categories
+                </a>
                 <a href="{{ route('admin.post.index') }}"
                     class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-table mr-3"></i>
@@ -207,28 +197,26 @@
                     <i class="fas fa-align-left mr-3"></i>
                     Tags
                 </a>
-                @can('admin-only')
-                    <a href="{{ route('admin.page.index') }}"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-align-left mr-3"></i>
-                        Pages
-                    </a>
-                    <a href="{{ route('admin.role.index') }}"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-tablet-alt mr-3"></i>
-                        Roles
-                    </a>
-                    <a href="{{ route('admin.setting.index') }}"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-tablet-alt mr-3"></i>
-                        Settings
-                    </a>
-                    <a href="{{ route('admin.contact.index') }}"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-envelope mr-3"></i>
-                        Contact Submissions
-                    </a>
-                @endcan
+                <a href="{{ route('admin.page.index') }}"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-align-left mr-3"></i>
+                    Pages
+                </a>
+                <a href="{{ route('admin.role.index') }}"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-tablet-alt mr-3"></i>
+                    Roles
+                </a>
+                <a href="{{ route('admin.setting.index') }}"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-tablet-alt mr-3"></i>
+                    Settings
+                </a>
+                <a href="{{ route('admin.contact.index') }}"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    <i class="fas fa-envelope mr-3"></i>
+                    Contact Submissions
+                </a>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
