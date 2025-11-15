@@ -146,8 +146,7 @@
                        href="{{ route('about.index') }}">About Us</a></li>
                 <li><a class="block hover:text-gray-200 py-2"
                        href="{{ route('contact.index') }}">Contact Us</a></li>
-                <li><a class="block bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 mx-4 my-2 rounded text-center"
-                       href="{{ route('login') }}">Admin Login</a></li>
+               
 
                 <!-- Mobile Dropdown for Services -->
                 <div x-data="{ openMobile: false }">
@@ -165,6 +164,9 @@
                         @endforelse
                     </div>
                 </div>
+
+                 <li><a class="block bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 mx-4 my-2 rounded text-center"
+                       href="{{ route('login') }}">Admin Login</a></li>
             </ul>
         </div>
     </div>
