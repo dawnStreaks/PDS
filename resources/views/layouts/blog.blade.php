@@ -128,6 +128,8 @@
                         @endforelse
                     </div>
                 </div>
+                <li><a class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm mx-2"
+                       href="{{ route('login') }}">Admin Login</a></li>
             </ul>
         </div>
 
@@ -161,6 +163,8 @@
                         @endforelse
                     </div>
                 </div>
+                <li><a class="block bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 mx-4 my-2 rounded text-center"
+                       href="{{ route('login') }}">Admin Login</a></li>
             </ul>
         </div>
     </div>
