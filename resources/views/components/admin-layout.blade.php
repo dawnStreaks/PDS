@@ -63,10 +63,10 @@
                 class="text-white text-3xl font-semibold uppercase hover:text-gray-300">
                 Admin
             </a>
-            <a href="{{ route('admin.post.create') }}"
+            <!-- <a href="{{ route('admin.post.create') }}"
                 class="w-full bg-white cta-btn font-semibold py-2 mt-1 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i class="fas fa-plus mr-3"></i> New Post
-            </a>
+            </a> -->
         </div>
         <nav class="text-white text-base font-semibold">
             <a href="{{ route('admin.index') }}"
@@ -79,7 +79,7 @@
                 <i class="fas fa-sticky-note mr-3"></i>
                 Categories
             </a>
-            <a href="{{ route('admin.post.index') }}"
+            <!-- <a href="{{ route('admin.post.index') }}"
                 class="{{ request()->routeIs('*.post.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
                 <i class="fas fa-newspaper mr-3"></i>
                 Posts
@@ -98,7 +98,7 @@
                 class="{{ request()->routeIs('*.role.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
                 <i class="fas fa-user-shield mr-3"></i>
                 Roles
-            </a>
+            </a> -->
             <a href="{{ route('admin.user.index') }}"
                 class="{{ request()->routeIs('*.user.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
