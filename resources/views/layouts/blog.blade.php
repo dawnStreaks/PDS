@@ -99,7 +99,7 @@
         </div>
 
         <!-- Full Menu for Desktop -->
-        <div class="hidden md:flex w-full md:w-auto items-center">
+        <div class="hidden md:flex w-full items-center justify-between">
             <ul class="flex items-center font-bold text-sm sm:text-base md:text-lg text-white uppercase">
                 @foreach ($pages_nav as $page)
                     <li><a class="hover:text-gray-200 hover:underline px-4"
@@ -111,8 +111,6 @@
                        href="{{ route('about.index') }}">About Us</a></li>
                 <li><a class="hover:text-gray-200 hover:underline px-4"
                        href="{{ route('contact.index') }}">Contact Us</a></li>
-                <li><a class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm mx-2"
-                       href="{{ route('login') }}">Admin Login</a></li>
                        
                 <div x-data="{ open: false }" class="relative">
                     <button @click="open = !open"
@@ -131,6 +129,10 @@
                     </div>
                 </div>
             </ul>
+            
+            <!-- Admin Login - Extreme Right -->
+            <a class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-bold text-sm uppercase ml-4"
+               href="{{ route('login') }}">Admin Login</a>
         </div>
 
         <!-- Mobile Menu -->
