@@ -99,7 +99,7 @@
         </div>
 
         <!-- Full Menu for Desktop -->
-        <div class="hidden md:flex w-full items-center justify-between">
+        <div class="hidden md:flex w-full md:w-auto items-center">
             <ul class="flex items-center font-bold text-sm sm:text-base md:text-lg text-white uppercase">
                 @foreach ($pages_nav as $page)
                     <li><a class="hover:text-gray-200 hover:underline px-4"
@@ -129,10 +129,6 @@
                     </div>
                 </div>
             </ul>
-            
-            <!-- Admin Login - Extreme Right -->
-            <a class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-bold text-sm uppercase ml-4"
-               href="{{ route('login') }}">Admin Login</a>
         </div>
 
         <!-- Mobile Menu -->
@@ -148,7 +144,6 @@
                        href="{{ route('about.index') }}">About Us</a></li>
                 <li><a class="block hover:text-gray-200 py-2"
                        href="{{ route('contact.index') }}">Contact Us</a></li>
-               
 
                 <!-- Mobile Dropdown for Services -->
                 <div x-data="{ openMobile: false }">
@@ -166,9 +161,6 @@
                         @endforelse
                     </div>
                 </div>
-
-                 <li><a class="block bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 mx-4 my-2 rounded text-center"
-                       href="{{ route('login') }}">Admin Login</a></li>
             </ul>
         </div>
     </div>
@@ -282,18 +274,10 @@
                 <p class="mt-4 text-gray-400">{{ $setting->site_desc }}</p>
             </div>
             <div class="flex items-center text-lg no-underline text-white pr-6">
-                @if($setting->url_fb)
-                    <a class="hover-primary" href="{{ $setting->url_fb }}"><i class="fab fa-facebook"></i></a>
-                @endif
-                @if($setting->url_twitter)
-                    <a class="hover-primary pl-6" href="{{ $setting->url_twitter }}"><i class="fab fa-twitter"></i></a>
-                @endif
-                @if($setting->url_insta)
-                    <a class="hover-primary pl-6" href="{{ $setting->url_insta }}"><i class="fab fa-instagram"></i></a>
-                @endif
-                @if($setting->url_linkedin)
-                    <a class="hover-primary pl-6" href="{{ $setting->url_linkedin }}"><i class="fab fa-linkedin"></i></a>
-                @endif
+                <a class="hover-primary" href="{{ $setting->url_fb }}"><i class="fab fa-facebook"></i></a>
+                <a class="hover-primary pl-6" href="{{ $setting->url_tw }}"><i class="fab fa-twitter"></i></a>
+                <a class="hover-primary pl-6" href="{{ $setting->url_insta }}"><i class="fab fa-instagram"></i></a>
+                <a class="hover-primary pl-6" href="{{ $setting->url_ytb }}"><i class="fab fa-youtube"></i></a>
             </div>
             <!-- Copyright Info -->
             <p class="text-white text-sm mt-4 md:mt-0">© {{ date('Y') }} {{ config('app.name') }}</p>
