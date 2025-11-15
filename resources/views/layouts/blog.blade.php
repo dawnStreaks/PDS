@@ -278,10 +278,18 @@
                 <p class="mt-4 text-gray-400">{{ $setting->site_desc }}</p>
             </div>
             <div class="flex items-center text-lg no-underline text-white pr-6">
-                <a class="hover-primary" href="{{ $setting->url_fb }}"><i class="fab fa-facebook"></i></a>
-                <a class="hover-primary pl-6" href="{{ $setting->url_tw }}"><i class="fab fa-twitter"></i></a>
-                <a class="hover-primary pl-6" href="{{ $setting->url_insta }}"><i class="fab fa-instagram"></i></a>
-                <a class="hover-primary pl-6" href="{{ $setting->url_ytb }}"><i class="fab fa-youtube"></i></a>
+                @if($setting->url_fb)
+                    <a class="hover-primary" href="{{ $setting->url_fb }}"><i class="fab fa-facebook"></i></a>
+                @endif
+                @if($setting->url_twitter)
+                    <a class="hover-primary pl-6" href="{{ $setting->url_twitter }}"><i class="fab fa-twitter"></i></a>
+                @endif
+                @if($setting->url_insta)
+                    <a class="hover-primary pl-6" href="{{ $setting->url_insta }}"><i class="fab fa-instagram"></i></a>
+                @endif
+                @if($setting->url_linkedin)
+                    <a class="hover-primary pl-6" href="{{ $setting->url_linkedin }}"><i class="fab fa-linkedin"></i></a>
+                @endif
             </div>
             <!-- Copyright Info -->
             <p class="text-white text-sm mt-4 md:mt-0">© {{ date('Y') }} {{ config('app.name') }}</p>
