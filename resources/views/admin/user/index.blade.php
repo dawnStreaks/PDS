@@ -30,8 +30,7 @@
                                 <td class="py-4 px-6 border-b border-grey-light">{{ $user->name }}</td>
                                 <td class="py-4 px-6 border-b border-grey-light">{{ $user->role->name }}</td>
                                 <td class="py-4 px-6 border-b border-grey-light">
-
-                                    <button class="px-4 py-1 text-white font-light tracking-wider bg-green-600 rounded" type="button"  onclick="location.href='{{ route('admin.user.edit', $user->id) }}';">Assign Role</button>
+                                    <a href="{{ route('admin.user.edit', $user->id) }}" class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 hover:bg-blue-700 rounded mr-2">Edit</a>
                                     <form type="submit" method="POST" style="display: inline" action="{{ route('admin.user.destroy', $user->id)}}" onsubmit="return confirm('Are you sure?')">
                                         @csrf
                                         @method('DELETE')

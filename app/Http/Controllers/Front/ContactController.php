@@ -24,7 +24,7 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required|min:10',
+            'message' => 'required|min:2',
         ]);
 
         // Save to database
@@ -37,11 +37,8 @@ class ContactController extends Controller
         try {
             // Send the email
             Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
-            \Log::info('Contact form email sent successfully', ['email' => $request->email]);
-            
         } catch (\Exception $e) {
-            // Fallback: Log to file for manual review
-            \Log::error('Contact form email failed', ['error' => $e->getMessage(), 'email' => $request->email]);
+            // Continue even if email fails
         }
         
         return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
