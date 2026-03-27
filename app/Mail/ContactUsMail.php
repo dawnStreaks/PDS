@@ -22,6 +22,7 @@ class ContactUsMail extends Mailable
     {
         return $this->view('emails.contact')
                     ->with('data', $this->data)
-                    ->subject('New Contact Us Message');
+                    ->subject('New Contact Us Message')
+                    ->replyTo($this->data['email'], $this->data['name']);
     }
 }

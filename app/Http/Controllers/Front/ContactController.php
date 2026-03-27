@@ -4,6 +4,7 @@
     namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUsMail;
 use App\Http\Controllers\Controller;
@@ -38,7 +39,11 @@ class ContactController extends Controller
             // Send the email
             Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
         } catch (\Exception $e) {
-            // Continue even if email fails
+            Log::error('Contact form mail error: '.$e->getMessage(), [
+                'request' => $request->only('name', 'email'),
+                'exception' => $e,
+            ]);
+            return back()->with('error', 'Unable to send email at this time. Please try again later.');
         }
         
         return redirect()->route('contact.index')->with('success', 'Thank you for contacting us! We will get back to you soon.');
