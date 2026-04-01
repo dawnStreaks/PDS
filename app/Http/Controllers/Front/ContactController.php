@@ -5,10 +5,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactUsMail;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Services\ZeptoMailService;
 
 
 class ContactController extends Controller
@@ -36,8 +35,18 @@ class ContactController extends Controller
         ]);
 
         try {
-            // Send the email
-            Mail::to('enquiries@pioneerau.com')->send(new ContactUsMail($request->all()));
+            $html = view('emails.contact', ['data' => $request->all()])->render();
+            $zepto = new ZeptoMailService();
+            $sent = $zepto->send(
+                'enquiries@pioneerau.com',
+                'New Contact Us Message',
+                $html,
+                $request->email
+            );
+
+            if (!$sent) {
+                return back()->with('error', 'Unable to send email at this time. Please try again later.');
+            }
         } catch (\Exception $e) {
             Log::error('Contact form mail error: '.$e->getMessage(), [
                 'request' => $request->only('name', 'email'),

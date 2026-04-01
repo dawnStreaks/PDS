@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'zeptomail' => [
+        'api_key' => env('ZEPTOMAIL_API_KEY'),
+        'from_address' => env('ZEPTOMAIL_FROM_ADDRESS', 'enquiries@pioneerau.com'),
+    ],
+
 ];
